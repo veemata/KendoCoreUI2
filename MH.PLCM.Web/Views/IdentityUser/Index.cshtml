@@ -1,0 +1,131 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model RegisterInputDto
+@{
+    ViewData["Title"] = "Manage Users";
+}
+
+
+
+<h2>Manage Users</h2>
+
+
+<div class="demo-inner-section">
+
+    <kendo-tabstrip name="tabstrip">
+        <popup-animation>
+            <open effects="fade:in" />
+        </popup-animation>
+        <items>
+            <tabstrip-item text="List" selected="true">
+                <content>
+                    @(Html.Kendo().Grid<IdentityUser>()
+                        .Name("user")
+                        .Columns(columns => {
+                            columns.Select();
+                            columns.Bound(u => u.Id).Hidden(true);
+                            columns.Bound(u => u.UserName);
+                            columns.Bound(u => u.Email);
+                            columns.Bound(u => u.PhoneNumber);
+                            columns.Bound(u => u.LockoutEnd);
+                        })
+                        .Events(events => events.Change("onRowSelected"))
+                        .Pageable()
+                        .Sortable()
+                        .Scrollable()
+                        .Filterable()
+                        .HtmlAttributes(new { style = "height:550px;" })
+                        .DataSource(dataSource => dataSource
+                            .Ajax()
+                            .PageSize(2)
+                            .Read(read => read.Action("Users_Read", "IdentityUser"))
+                         ))
+                </content>
+            </tabstrip-item>
+            <tabstrip-item text="User Roles">
+                <content>
+
+                    @(Html.Kendo().Grid(Model.UserRoles)
+                        .Name("userRoles")
+                        .Columns(columns =>
+                        {
+                            columns.Select();
+                            columns.Bound(r=>r.RoleName);
+                            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(300);
+                        })
+                         .ToolBar(toolbar =>
+                         {
+                             toolbar.Create().Text("Add Role");
+                        })
+                        .HtmlAttributes(new { style = "height:550px;" })
+                         )
+
+                </content>
+            </tabstrip-item>
+            <tabstrip-item text="Register">
+                <content>
+                    <div class="col-md-12">
+                        <form asp-controller="IdentityUser" asp-action="Register_User" method="post">
+                            <h4>Create a new account.</h4>
+                            <hr />
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="Email"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password"></label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ConfirmPassword"></label>
+                                <input asp-for="ConfirmPassword" class="form-control" />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                            <button class="btn btn-primary">Register</button>
+                        </form>
+                    </div>
+                </content>
+            </tabstrip-item>
+        </items>
+    </kendo-tabstrip>
+</div>
+
+@section Scripts
+{
+    <script>
+
+        var selectedRow = null;
+        //onRowSelected
+        function onRowSelected(e) {
+            var row = this.select();
+            if (row.length > 0) {
+                selectedRow = e.sender.select();
+                var row = e.sender.dataItem(selectedRow);
+                GetAjaxPostAction(row.Id);
+               
+            }
+
+        }
+
+        function GetAjaxPostAction(param) {
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: '/IdentityUser/User_Roles',
+                data: { userId: param },
+                success: function (response) {
+                    var rolesGrid = $("#userRoles").data("kendoGrid");
+                    var dataSource = new kendo.data.DataSource({ data: response });
+                    rolesGrid.setDataSource(dataSource);
+                    rolesGrid.dataSource.read();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
+    </script>
+}
+

@@ -1,0 +1,70 @@
+﻿{
+   "ContextClassName": "NACO1Context",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "DoNotCombineNamespace": false,
+   "IdReplace": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Data",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "MH.PLCM",
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_EngArtworkRequest]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_EngArtworkRequestPlate]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_Engineering]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_Filter]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_History]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_MSS]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_NewPart]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_Packaging]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_PackagingValImages]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_Quality]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_Trigger]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NACO_Validations]"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseSpatial": false
+}
