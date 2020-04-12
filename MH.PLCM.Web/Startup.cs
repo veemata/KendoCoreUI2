@@ -13,6 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MH.PLCM.Service;
+using MH.PLCM.Models;
+using MH.PLCM.Utils;
 
 namespace MH.PLCM
 {
@@ -36,9 +38,10 @@ namespace MH.PLCM
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddClaimsPrincipalFactory<MhUserClaimsPrincipalFactory>(); // Add your claims
 
             services.AddControllersWithViews()
                 .AddJsonOptions(options =>  options.JsonSerializerOptions.PropertyNamingPolicy = null);

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using MH.PLCM.Data;
+using MH.PLCM.Models;
 using MH.PLCM.Models.Dtos;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,15 +17,15 @@ namespace MH.PLCM.Controllers
 {
     public class IdentityUserController : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<IdentityUserController> _logger;
         private readonly ApplicationDbContext _db;
 
 
-        public IdentityUserController(SignInManager<IdentityUser> signInManager,
+        public IdentityUserController(SignInManager<ApplicationUser> signInManager,
             ILogger<IdentityUserController> logger,
-            UserManager<IdentityUser> userManager,
+            UserManager<ApplicationUser> userManager,
             ApplicationDbContext db)
         {
             _userManager = userManager;
@@ -66,7 +67,7 @@ namespace MH.PLCM.Controllers
             if (modelUser != null && ModelState.IsValid)
             {
 
-                IdentityUser user = new IdentityUser { UserName = modelUser.Email, Email = modelUser.Email };
+                ApplicationUser user = new ApplicationUser { UserName = modelUser.Email, Email = modelUser.Email };
                 IdentityResult result = _userManager.CreateAsync(user, modelUser.Password).Result;
 
                 if (result != IdentityResult.Success)
@@ -79,7 +80,7 @@ namespace MH.PLCM.Controllers
         }
 
         [AcceptVerbs("Post")]
-        public ActionResult Update([DataSourceRequest] DataSourceRequest request, IdentityUser user)
+        public ActionResult Update([DataSourceRequest] DataSourceRequest request, ApplicationUser user)
         {
             if (user != null && ModelState.IsValid)
             {
@@ -90,7 +91,7 @@ namespace MH.PLCM.Controllers
         }
 
         [AcceptVerbs("Post")]
-        public ActionResult Lockout([DataSourceRequest] DataSourceRequest request, IdentityUser user)
+        public ActionResult Lockout([DataSourceRequest] DataSourceRequest request, ApplicationUser user)
         {
             if (user != null)
             {

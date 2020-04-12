@@ -19,9 +19,9 @@ C:\Users\3051752\source\repos\PLCM\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\bin\Debug\netstandard2.0\MH.PLCM.Data.deps.json
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\bin\Debug\netstandard2.0\MH.PLCM.Data.dll
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\bin\Debug\netstandard2.0\MH.PLCM.Data.pdb
-C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM.Data.csprojAssemblyReference.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM.Data.csproj.CoreCompileInputs.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM.Data.AssemblyInfoInputs.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM.Data.AssemblyInfo.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM.Data.dll
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM.Data.pdb
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM.Data.csprojAssemblyReference.cache

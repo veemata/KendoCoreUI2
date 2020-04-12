@@ -1,6 +1,7 @@
 ﻿
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using MH.PLCM.Models;
 using MH.PLCM.Northwind.Entities;
 using MH.PLCM.Service;
 using Microsoft.AspNetCore.Http;
@@ -22,10 +23,10 @@ namespace MH.PLCM.Controllers
 
         private readonly ILogger<GridController> _logger;
         private readonly NorthwindService _srv;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         public GridController(ILogger<GridController> logger, 
-            NorthwindService srv, UserManager<IdentityUser> usrManager)
+            NorthwindService srv, UserManager<ApplicationUser> usrManager)
         {
             _logger = logger;
             _srv = srv;

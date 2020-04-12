@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using MH.PLCM.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace MH.PLCM.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole, string>
     {
 
         public virtual DbSet<NacoEngArtworkRequest> NacoEngArtworkRequests { get; set; }

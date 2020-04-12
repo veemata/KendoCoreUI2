@@ -1,0 +1,52 @@
+﻿@page
+@using MH.PLCM.Models
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<h4>@ViewData["Title"]</h4>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.PhoneNumber"></label>
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ContactName"></label>
+                <input asp-for="Input.ContactName" class="form-control" />
+                <span asp-validation-for="Input.ContactName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Company"></label>
+                <select asp-for="Input.Company" asp-items="Html.GetEnumSelectList<Company>()"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Location"></label>
+                <select asp-for="Input.Location" asp-items="Html.GetEnumSelectList<Location>()"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Department"></label>
+                <select asp-for="Input.Department" asp-items="Html.GetEnumSelectList<Department>()"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ContributionLevel"></label>
+                <select asp-for="Input.ContributionLevel" asp-items="Html.GetEnumSelectList<ContributionLevel>()"></select>
+            </div>
+            <button id="update-profile-button" type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
