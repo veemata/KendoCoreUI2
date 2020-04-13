@@ -723,9 +723,6 @@ C:\Users\3051752\source\repos\PLCM\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.d
 C:\Users\3051752\source\repos\PLCM\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.pdb
 C:\Users\3051752\source\repos\PLCM\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.genruntimeconfig.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.csprojAssemblyReference.cache
-C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.csproj.CoreCompileInputs.cache
-C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.RazorAssemblyInfo.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.RazorAssemblyInfo.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.AssemblyInfoInputs.cache
@@ -970,3 +967,9 @@ C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\M
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\staticwebassets\MH.PLCM.StaticWebAssets.Manifest.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\staticwebassets\MH.PLCM.StaticWebAssets.xml
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.genruntimeconfig.cache
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\Razor\Views\Permission\Index.cshtml.g.cs
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.csproj.CoreCompileInputs.cache
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

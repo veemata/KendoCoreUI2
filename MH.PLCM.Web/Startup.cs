@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using MH.PLCM.Service;
 using MH.PLCM.Models;
 using MH.PLCM.Utils;
+using AutoMapper;
 
 namespace MH.PLCM
 {
@@ -42,7 +43,7 @@ namespace MH.PLCM
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddClaimsPrincipalFactory<MhUserClaimsPrincipalFactory>(); // Add your claims
-
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews()
                 .AddJsonOptions(options =>  options.JsonSerializerOptions.PropertyNamingPolicy = null);
             

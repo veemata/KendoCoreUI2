@@ -17,7 +17,7 @@ namespace MH.PLCM.Models
         public string PermissionName { get; set; }
         
         [StringLength(100)]
-        public string  Group { get; set; }  
+        public string  PermissionGroup { get; set; }  
         
         [Required]
         [StringLength(50)]

@@ -1051,7 +1051,7 @@ namespace MH.PLCM.Data.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<string>("Group")
+                    b.Property<string>("PermissionGroup")
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
