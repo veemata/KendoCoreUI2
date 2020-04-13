@@ -16,6 +16,7 @@ using MH.PLCM.Service;
 using MH.PLCM.Models;
 using MH.PLCM.Utils;
 using AutoMapper;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace MH.PLCM
 {
@@ -31,21 +32,21 @@ namespace MH.PLCM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<KestrelServerOptions>(options =>  { options.AllowSynchronousIO = true;  });
+            services.Configure<IISServerOptions>(options => { options.AllowSynchronousIO = true;  });
 
             services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Northwind")));
             services.AddTransient<NorthwindService>();
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddClaimsPrincipalFactory<MhUserClaimsPrincipalFactory>(); // Add your claims
-            services.AddAutoMapper(typeof(Startup));
-            services.AddControllersWithViews()
-                .AddJsonOptions(options =>  options.JsonSerializerOptions.PropertyNamingPolicy = null);
+
+            services.AddAutoMapper(typeof(Startup)); // AutoMapper
+            services.AddControllersWithViews().AddJsonOptions(options =>  options.JsonSerializerOptions.PropertyNamingPolicy = null);
             
             services.AddRazorPages();
             services.AddKendo();

@@ -1,0 +1,35 @@
+﻿@model UserInRolesViewModel
+@{
+    ViewData["Title"] = "User In Roles";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    @Model.User.ContactName;
+    @Model.User.PhoneNumber;
+    @Model.User.Department;
+    @Model.User.Company;
+    @Model.User.Location;
+    @Model.User.ContributionLevel;
+
+</div>
+
+
+<div>
+    @(Html.Kendo().Grid(Model.Roles)
+                        .Name("userRoles")
+                        .Columns(columns =>
+                        {
+                            columns.Select();
+                            columns.Bound(r=>r.ApplicationRoleName);
+                            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(300);
+                        })
+                         .ToolBar(toolbar =>
+                         {
+                             toolbar.Create().Text("Add Role");
+                        })
+                        .HtmlAttributes(new { style = "height:550px;" })
+                         )
+
+</div>

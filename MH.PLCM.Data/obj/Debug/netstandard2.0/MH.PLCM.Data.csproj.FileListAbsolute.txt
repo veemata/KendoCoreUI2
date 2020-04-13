@@ -24,4 +24,3 @@ C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM.Data.AssemblyInfo.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM.Data.dll
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM.Data.pdb
-C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Data\obj\Debug\netstandard2.0\MH.PLCM.Data.csprojAssemblyReference.cache
