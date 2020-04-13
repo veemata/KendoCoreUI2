@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using Kendo.Mvc.Extensions;
+﻿using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using MH.PLCM.Data;
+using MH.PLCM.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MH.PLCM.Controllers
 {
     public class RoleController : Controller
     {
-        private RoleManager<IdentityRole> roleManager;
-        public RoleController(RoleManager<IdentityRole> roleMgr)
+        private readonly ApplicationDbContext _db;
+        public RoleController(ApplicationDbContext db)
         {
-            roleManager = roleMgr;
+            _db = db;
         }
 
 
@@ -26,33 +25,35 @@ namespace MH.PLCM.Controllers
 
         public ActionResult Roles_Read([DataSourceRequest]DataSourceRequest request)
         {
-            return Json(roleManager.Roles.ToDataSourceResult(request));
+            return Json(_db.ApplicationRoles.ToDataSourceResult(request));
         }
 
 
         public IActionResult Create() => View();
 
         [AcceptVerbs("Post")]
-        public async Task<ActionResult> Role_Create([DataSourceRequest] DataSourceRequest request, IdentityRole role)
+        public async Task<ActionResult> Role_Create([DataSourceRequest] DataSourceRequest request, ApplicationRole role)
         {
             if (role != null && ModelState.IsValid)
             {
-                IdentityRole storeRole = await roleManager.FindByNameAsync(role.Name);
+                ApplicationRole storeRole = _db.ApplicationRoles.Where(ar=>ar.ApplicationRoleId == role.ApplicationRoleId).FirstOrDefault();
                 if (storeRole == null)
                 {
-                    IdentityResult result = await roleManager.CreateAsync(new IdentityRole(role.Name));
-                    if (result.Succeeded)
+                    try
                     {
+                        _db.ApplicationRoles.Add(role);
+                        await _db.SaveChangesAsync();
+                    }
+                    catch
+                    {
+                        ModelState.AddModelError("Add Role", "Some thing went wrong");
+                    }
 
-                    }
-                    else
-                    {
-                        // Error how to communicate
-                    }
                 }
                 else
                 {
                     // Error How to Communicate
+                    ModelState.AddModelError("Add Role", "Some thing went wrong");
                 }
             }
 
@@ -62,20 +63,22 @@ namespace MH.PLCM.Controllers
 
 
         [AcceptVerbs("Post")]
-        public async Task<ActionResult> Role_Update([DataSourceRequest] DataSourceRequest request, IdentityRole role)
+        public async Task<ActionResult> Role_Update([DataSourceRequest] DataSourceRequest request, ApplicationRole role)
         {
-            IdentityRole storeRole = null;
+            ApplicationRole storeRole = null;
             if (role != null && ModelState.IsValid)
             {
-                storeRole = await roleManager.FindByIdAsync(role.Id);
+                storeRole = _db.ApplicationRoles.Where(ar=>ar.ApplicationRoleId == role.ApplicationRoleId).FirstOrDefault();
                 if (storeRole != null)
                 {
-                    storeRole.Name = role.Name;
-                    IdentityResult result = await roleManager.UpdateAsync(storeRole);
-                    storeRole = await roleManager.FindByIdAsync(role.Id);  // Get Updated Values like Normalized Name
-                    if (!result.Succeeded)
+                    try
                     {
-                        ModelState.AddModelError("Role", "Role doesn't exist");     
+                        _db.ApplicationRoles.Update(role);
+                        await _db.SaveChangesAsync();
+                    }
+                    catch
+                    {
+                    ModelState.AddModelError("Role", "Role doesn't exist"); 
                     }
                 }
                 else
@@ -83,8 +86,7 @@ namespace MH.PLCM.Controllers
                     //If error just send back what your got
                     storeRole = role;
                     ModelState.AddModelError("Role", "Role doesn't exist");
-                }
-                
+                }  
             }
 
             return Json(new[] { storeRole }.ToDataSourceResult(request, ModelState));

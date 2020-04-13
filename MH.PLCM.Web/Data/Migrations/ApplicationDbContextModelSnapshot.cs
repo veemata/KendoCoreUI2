@@ -19,6 +19,31 @@ namespace MH.PLCM.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("MH.PLCM.Models.ApplicationRole", b =>
+                {
+                    b.Property<int>("ApplicationRoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationRoleName")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<int?>("PermissionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ApplicationRoleId");
+
+                    b.HasIndex("ApplicationRoleName")
+                        .IsUnique()
+                        .HasFilter("[ApplicationRoleName] IS NOT NULL");
+
+                    b.HasIndex("PermissionId");
+
+                    b.ToTable("ApplicationRoles");
+                });
+
             modelBuilder.Entity("MH.PLCM.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -1004,6 +1029,64 @@ namespace MH.PLCM.Data.Migrations
                     b.ToTable("NACO_Validations");
                 });
 
+            modelBuilder.Entity("MH.PLCM.Models.Permission", b =>
+                {
+                    b.Property<int>("PermissionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("ApplicationArea")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Controller")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Group")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("PermissionName")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Remarks")
+                        .HasColumnType("nvarchar(250)")
+                        .HasMaxLength(250);
+
+                    b.HasKey("PermissionId");
+
+                    b.HasIndex("PermissionName")
+                        .IsUnique()
+                        .HasFilter("[PermissionName] IS NOT NULL");
+
+                    b.ToTable("Permissions");
+                });
+
+            modelBuilder.Entity("MH.PLCM.Models.RolePermission", b =>
+                {
+                    b.Property<int>("ApplicationRoleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PermissionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ApplicationRoleId", "PermissionId");
+
+                    b.HasIndex("PermissionId");
+
+                    b.ToTable("RolePermission");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -1139,12 +1222,34 @@ namespace MH.PLCM.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("MH.PLCM.Models.ApplicationRole", b =>
+                {
+                    b.HasOne("MH.PLCM.Models.Permission", "Permission")
+                        .WithMany()
+                        .HasForeignKey("PermissionId");
+                });
+
             modelBuilder.Entity("MH.PLCM.Models.NacoEngArtworkRequestPlate", b =>
                 {
                     b.HasOne("MH.PLCM.Models.NacoEngArtworkRequest", "ArkworkRequest")
                         .WithMany("NacoEngArtworkRequestPlates")
                         .HasForeignKey("ArkworkRequestId")
                         .HasConstraintName("FK_NACO_EngArtworkRequestPlate_NACO_EngArtworkRequest")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MH.PLCM.Models.RolePermission", b =>
+                {
+                    b.HasOne("MH.PLCM.Models.ApplicationRole", "ApplicationRole")
+                        .WithMany("RolePermissions")
+                        .HasForeignKey("ApplicationRoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MH.PLCM.Models.Permission", "Permission")
+                        .WithMany("RolePermissions")
+                        .HasForeignKey("PermissionId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 

@@ -1,17 +1,16 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿
 @{
     ViewData["Title"] = "Roles";
 }
 
 <h2>Application Users</h2>
 
-@(Html.Kendo().Grid<IdentityRole>()
+@(Html.Kendo().Grid<ApplicationRole>()
                 .Name("user")
                 .Columns(columns =>
                 {
-                    columns.Bound(r => r.Id).Hidden(true);
-                    columns.Bound(r => r.Name);
-                    columns.Bound(r => r.NormalizedName);
+                    columns.Bound(r => r.ApplicationRoleId).Hidden(true);
+                    columns.Bound(r => r.ApplicationRoleName);
                     columns.Command(command => { command.Edit(); }).Width(300);
                 })
                 .ToolBar(toolbar =>
@@ -30,8 +29,7 @@
                     .Events(events => events.Error("error_handler"))
                     .Model(model =>
                     {
-                        model.Id(r => r.Id);
-                        model.Field(f => f.NormalizedName).Editable(false);
+                        model.Id(r => r.ApplicationRoleId);
                     })
                     .Create(update => update.Action("Role_Create", "Role"))
                     .Update(update => update.Action("Role_Update", "Role"))
