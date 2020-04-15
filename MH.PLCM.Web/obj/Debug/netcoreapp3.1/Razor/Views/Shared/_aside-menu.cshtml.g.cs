@@ -13,13 +13,6 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
-using MH.PLCM;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 2 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
 using MH.PLCM.Models;
 
@@ -28,7 +21,7 @@ using MH.PLCM.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
-using MH.PLCM.Models.Dtos;
+using MH.PLCM.Core.Entities;
 
 #line default
 #line hidden
@@ -48,7 +41,7 @@ using MH.PLCM.Northwind.Entities;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6742a9a8b9000d54d21868bbf45e1724d6d45cc1", @"/Views/Shared/_aside-menu.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9838e3d302c9bef2f4d6c467f2a39c2efd9fe77b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7930d175f13367389cfd920888a0790d4c554091", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__aside_menu : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

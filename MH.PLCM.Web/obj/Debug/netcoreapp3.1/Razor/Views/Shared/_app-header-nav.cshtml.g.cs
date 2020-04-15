@@ -13,13 +13,6 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
-using MH.PLCM;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 2 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
 using MH.PLCM.Models;
 
@@ -28,7 +21,7 @@ using MH.PLCM.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
-using MH.PLCM.Models.Dtos;
+using MH.PLCM.Core.Entities;
 
 #line default
 #line hidden
@@ -48,7 +41,7 @@ using MH.PLCM.Northwind.Entities;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1400ab7c92a029291f1b1917437fa8e53dc60203", @"/Views/Shared/_app-header-nav.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9838e3d302c9bef2f4d6c467f2a39c2efd9fe77b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7930d175f13367389cfd920888a0790d4c554091", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__app_header_nav : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -81,7 +74,7 @@ using MH.PLCM.Northwind.Entities;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<ul class=\"nav navbar-nav d-md-down-none\">\n  <li class=\"nav-item px-3\">\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1400ab7c92a029291f1b1917437fa8e53dc602035261", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1400ab7c92a029291f1b1917437fa8e53dc602035086", async() => {
                 WriteLiteral("Home");
             }
             );
@@ -101,7 +94,7 @@ using MH.PLCM.Northwind.Entities;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n  </li>\n  <li class=\"nav-item px-3\">\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1400ab7c92a029291f1b1917437fa8e53dc602036863", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1400ab7c92a029291f1b1917437fa8e53dc602036688", async() => {
                 WriteLiteral("About");
             }
             );
@@ -121,7 +114,7 @@ using MH.PLCM.Northwind.Entities;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\n  </li>\n  <li class=\"nav-item px-3\">\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1400ab7c92a029291f1b1917437fa8e53dc602038466", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1400ab7c92a029291f1b1917437fa8e53dc602038291", async() => {
                 WriteLiteral("Contact");
             }
             );

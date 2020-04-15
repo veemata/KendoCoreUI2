@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Samples";
+}
+
+<h1>Samples</h1>
+@* Template Binding for Add/Edit - See the template name, it is a cshtml file in View->Shared->EditorTemplate->IdentityUser.cshtml
+    @(Html.Kendo().Grid<IdentityUser>()
+                            .Name("usercreate")
+                            .Columns(columns => {
+                                columns.Select();
+                                columns.Bound(u => u.Id).Hidden(true);
+                                columns.Bound(u => u.UserName);
+                                columns.Bound(u => u.Email);
+                                columns.Bound(u => u.PhoneNumber);
+                                columns.Bound(u => u.LockoutEnd);
+                            })
+                            .ToolBar(toolbar => toolbar.Create())
+                            .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("IdentityUser"))
+                            .Pageable()
+                            .Sortable()
+                            .Scrollable()
+                            .Filterable()
+                            .HtmlAttributes(new { style = "height:550px;" })
+                            .DataSource(dataSource => dataSource
+                                .Ajax()
+                                .PageSize(20)
+                                .Read(read => read.Action("Users_Read", "IdentityUser"))
+                                .Create(create=> create.Action("Register_User", "IdentityUser")
+                                )
+                             ))
+*@

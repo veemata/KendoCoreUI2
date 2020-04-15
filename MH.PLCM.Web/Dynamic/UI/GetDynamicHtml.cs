@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
-using System;
 
 namespace Dynamic
 {
@@ -39,7 +37,7 @@ namespace Dynamic
             inputBuilder.MergeAttribute("value", value);
             inputBuilder.MergeAttribute("name", name);
             inputBuilder.AddCssClass("form-control");
-            if(! (vals is null))
+            if (!(vals is null))
             {
                 foreach (MhValidationProperty vat in vals)
                 {

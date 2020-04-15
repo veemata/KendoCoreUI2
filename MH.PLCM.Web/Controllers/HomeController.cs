@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MH.PLCM.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MH.PLCM.Models;
-using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics;
 
 namespace MH.PLCM.Controllers
 {

@@ -1,5 +1,3 @@
-using System;
-
 namespace MH.PLCM.Models
 {
     public class ErrorViewModel

@@ -6287,9 +6287,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\3051752\\source\\repos\\KendoCoreUI2\\MH.PLCM.Data\\MH.PLCM.Data.csproj",
-      "projectName": "MH.PLCM.Data",
-      "projectPath": "C:\\Users\\3051752\\source\\repos\\KendoCoreUI2\\MH.PLCM.Data\\MH.PLCM.Data.csproj",
+      "projectUniqueName": "C:\\Users\\3051752\\source\\repos\\KendoCoreUI2\\MH.PLCM.Data\\MH.PLCM.Northwind.Data.csproj",
+      "projectName": "MH.PLCM.Northwind.Data",
+      "projectPath": "C:\\Users\\3051752\\source\\repos\\KendoCoreUI2\\MH.PLCM.Data\\MH.PLCM.Northwind.Data.csproj",
       "packagesPath": "C:\\Users\\3051752\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\3051752\\source\\repos\\KendoCoreUI2\\MH.PLCM.Data\\obj\\",
       "projectStyle": "PackageReference",

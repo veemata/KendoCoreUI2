@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Northwind\Models\" />
+    <EmbeddedResource Include="wwwroot\js\gridEdit.js" />
+    <Folder Include="wwwroot\css\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\gridEdit.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2020.1.219" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MH.PLCM.Core\MH.PLCM.Core.csproj" />
+    <ProjectReference Include="..\MH.PLCM.Data\MH.PLCM.Northwind.Data.csproj" />
+  </ItemGroup>
+
+
+</Project>

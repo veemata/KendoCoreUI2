@@ -18,12 +18,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
     <Folder Include="ViewComponents\" />
-    <Folder Include="Views\Shared\Components\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MH.PLCM.Data\MH.PLCM.Data.csproj" />
+    <ProjectReference Include="..\MH.PLCM.Core\MH.PLCM.Core.csproj" />
+    <ProjectReference Include="..\MH.PLCM.Data\MH.PLCM.Northwind.Data.csproj" />
+    <ProjectReference Include="..\MH.PLCM.Northwind\MH.PLCM.Northwind.Web.csproj" />
   </ItemGroup>
 
 </Project>

@@ -42,7 +42,7 @@ namespace MH.PLCM.Service
 
         }
 
-       
+
 
         #endregion
 
@@ -123,9 +123,9 @@ namespace MH.PLCM.Service
         #region UserApplicationSettings
         public void AddUserSetting(UserSetting userSetting)
         {
-            if(userSetting.SettingSeq == 0)
+            if (userSetting.SettingSeq == 0)
             {
-                if(GetUserSettings(userSetting.UserId, userSetting.SettingKey).Count() >0)
+                if (GetUserSettings(userSetting.UserId, userSetting.SettingKey).Count() > 0)
                 {
                     userSetting.SettingSeq = GetUserSettings(userSetting.UserId, userSetting.SettingKey).Max(us => us.SettingSeq) + 1;
                 }
@@ -133,7 +133,7 @@ namespace MH.PLCM.Service
                 {
                     userSetting.SettingSeq = 1;
                 }
-                
+
             }
             db.UserSettings.Add(userSetting);
             db.SaveChanges();
@@ -141,7 +141,7 @@ namespace MH.PLCM.Service
 
         public IEnumerable<UserSetting> GetUserSettings(string userId, string userKey)
         {
-           return(db.UserSettings.Where(m => m.UserId == userId && m.SettingKey.Equals(userKey)));
+            return (db.UserSettings.Where(m => m.UserId == userId && m.SettingKey.Equals(userKey)));
         }
 
         public UserSetting GetUserSetting(string userId, string userKey, int seq)
@@ -154,7 +154,7 @@ namespace MH.PLCM.Service
             return (db.UserSettings.Where(us => us.Id == rowId).FirstOrDefault());
         }
         #endregion
-      
+
     }
 
 

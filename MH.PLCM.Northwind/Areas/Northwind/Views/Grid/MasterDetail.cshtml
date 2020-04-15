@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewData["Title"] = "MasterDetail";
+}
+
+<h1>MasterDetail</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            @(Html.Kendo().ListView<Category>()
+                    .Name("listView")
+                    .TagName("div")
+                    .ClientTemplateId("template")
+                    .Scrollable(ListViewScrollableMode.Endless)
+                    .HtmlAttributes(new { style = "height:430px;" })
+                    .DataSource(dataSource => dataSource
+                        .Ajax()
+                        .Read(read => read.Action("Categories_Read", "Grid"))
+                    )
+                    .Selectable(s => s.Mode(ListViewSelectionMode.Single))
+                    .Events(events => events.Change("selectChange"))
+            )
+        </div>
+        <div class="col-9">
+            @(Html.Kendo().Grid<Product>()
+              .Name("grdProducts")
+              .Columns(columns =>
+              {
+
+                  columns.Bound(c => c.ProductName);
+
+                  columns.Bound(c => c.UnitPrice);
+              })
+              .HtmlAttributes(new { style = "height:430px;" })
+              .Sortable()
+              .Scrollable()
+              .Filterable()
+              .ColumnMenu()
+              .Resizable(rsb => rsb.Columns(true))
+              .Reorderable(r => r.Columns(true))
+              .Pageable(pageable => pageable.Refresh(true).PageSizes(true).ButtonCount(5))
+              .DataSource(dataSource => dataSource
+                  .Ajax()
+                  .PageSize(20)
+                  .Read(read => read.Action("Products_Read", "Grid").Data("onAdditionalData"))
+              )
+            )
+        </div>
+    </div>
+</div>
+
+
+<style>
+
+    .card-body {
+        background-color: whitesmoke;
+        color: black;
+    }
+
+        .card-body:hover {
+            background-color: goldenrod;
+            color: white;
+        }
+
+        .card-body:active {
+            background-color: forestgreen;
+            color: white;
+        }
+</style>
+
+@section Scripts
+{
+    <script type="text/x-kendo-template" id="template">
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body text-left" style="">
+                    <div>#:CategoryName#</div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script src="~/_content/MH.PLCM.Northwind.Web/js/masterDetail.js"></script>
+}

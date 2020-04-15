@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MH.PLCM.Northwind.Entities
@@ -23,7 +22,7 @@ namespace MH.PLCM.Northwind.Entities
         [Required]
         public string SettingValue { get; set; }
 
-        public  byte[]  SettingBinary { get; set; }
+        public byte[] SettingBinary { get; set; }
 
     }
 }

@@ -34,6 +34,13 @@ using MH.PLCM.Areas.Identity.Pages;
 #line hidden
 #nullable disable
 #nullable restore
+#line 4 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Areas\Identity\Pages\_ViewImports.cshtml"
+using MH.PLCM.Core.Entities;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Areas\Identity\Pages\Account\_ViewImports.cshtml"
 using MH.PLCM.Areas.Identity.Pages.Account;
 
@@ -48,7 +55,7 @@ using MH.PLCM.Areas.Identity.Pages.Account.Manage;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"876a639b14a78d6ac9d6624f4a30792bb559d0f0", @"/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e71b62fee144527e0b9e4564ad70faf5dbac1a34", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c54af8a81375d23b58f4dcc680b3f49f3b796ba7", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d2ce435cc04916624697a1c712fa0cc82adaac44", @"/Areas/Identity/Pages/Account/_ViewImports.cshtml")]
     public class Areas_Identity_Pages_Account_Manage__ViewImports : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {

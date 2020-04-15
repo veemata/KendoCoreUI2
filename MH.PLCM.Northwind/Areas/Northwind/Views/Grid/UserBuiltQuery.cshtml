@@ -1,0 +1,109 @@
+﻿@using  Kendo.Mvc
+@{
+    ViewData["Title"] = "User Create, Store and retrieve Queries ";
+}
+
+
+<div class="demo-section k-content" style="padding:20px">
+    <div class="container-fluid">
+        <div class="row">
+            @(Html.Kendo().DataSource<Product>()
+               .Name("dataSource1")
+                .Ajax(dataSource => dataSource
+                        .Read(read => read.Action("Products_Read", "Grid"))
+            ))
+        </div>
+
+        <kendo-panelbar name="query" style="margin-bottom=20px">
+            <items>
+                <panelbar-item text="Advanced Query" expanded="false">
+                    <content>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                @(Html.Kendo().Filter<Product>()
+                               .Name("filter")
+                               .MainLogic(FilterCompositionLogicalOperator.Or)
+                               .ApplyButton()
+                               .ExpressionPreview()
+                               .HtmlAttributes("margin-left:5px")
+                               .DataSource("dataSource1")
+                                )
+                            </div>
+                            <div class="col-12 col-md-6" style="margin-top:5px">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 float-right">
+                                        <span>Seting Name:</span>
+                                        <input type="text" id="fname" name="fname" />
+                                        <a href="#" class="k-button" id="saveFilter">Save</a>
+                                    </div>
+                                    <div class="col-12 col-md-6 float-right">
+                                        <span>Saved Settings :</span>
+                                        <select id="cars">
+                                            <option value="volvo">Volvo 12345 67890 12345</option>
+                                            <option value="saab">Saab</option>
+                                            <option value="mercedes">Mercedes</option>
+                                            <option value="audi">Audi</option>
+                                        </select>
+                                        <a href="#" class="k-button" id="loadFilter">Load</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </content>
+                </panelbar-item>
+            </items>
+        </kendo-panelbar>
+
+        <div class="row" style="margin:5px 5px 5px 5px; background-color:gray">
+            <div class="col-md-6 float-left"> <h4> Product Details </h4></div>
+            <div class="col-12 col-md-3 float-right">
+                <span>Seting Name:</span>
+                <input type="text" id="fname" name="fname" />
+                <a href="#" class="k-button" id="saveGridState">Save</a>
+            </div>
+            <div class="col-12 col-md-3 float-right">
+                <span>Saved Settings :</span>
+                <select id="cars">
+                    <option value="volvo">Volvo 12345 67890 12345</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <a href="#" class="k-button" id="loadGridState">Load</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                @(Html.Kendo().Grid<Product>()
+                    .Name("grdProducts")
+                    .Columns(columns =>
+                    {
+                        columns.Bound(c => c.ProductId);
+                        columns.Bound(c => c.ProductName);
+                        columns.Bound(c => c.QuantityPerUnit).Width(190);
+                        columns.Bound(c => c.UnitPrice);
+                    })
+                    .HtmlAttributes(new { style = "height:430px;" })
+                    .Sortable()
+                    .Scrollable()
+                    .Filterable()
+                    .ColumnMenu()
+                    .Resizable(rsb => rsb.Columns(true))
+                    .Reorderable(r => r.Columns(true))
+                    .Pageable(pageable => pageable.Refresh(true).PageSizes(true).ButtonCount(5))
+                    .DataSource("dataSource1")
+                )
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts
+{
+    <script src="~/_content/MH.PLCM.Northwind.Web/js/builtInQuery.js"></script>
+}

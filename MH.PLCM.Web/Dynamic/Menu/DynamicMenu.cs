@@ -1,9 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
+﻿using Dynamic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Dynamic;
 using System.Text;
 
 namespace MH.PLCM.Menu
@@ -30,7 +28,7 @@ namespace MH.PLCM.Menu
 
                 sb.AppendLine(GetNavigableMenuItem(itm));
 
-                if (items.Where(c => c.ParentId == itm.ParentId).Count()>0)
+                if (items.Where(c => c.ParentId == itm.ParentId).Count() > 0)
                 {
 
                 }

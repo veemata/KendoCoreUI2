@@ -13,13 +13,6 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
-using MH.PLCM;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 2 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
 using MH.PLCM.Models;
 
@@ -28,7 +21,7 @@ using MH.PLCM.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
-using MH.PLCM.Models.Dtos;
+using MH.PLCM.Core.Entities;
 
 #line default
 #line hidden
@@ -55,7 +48,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b1142b8cdf3cbad56e99e07abf1ac686b01b0441", @"/Views/Shared/_user-nav.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9838e3d302c9bef2f4d6c467f2a39c2efd9fe77b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7930d175f13367389cfd920888a0790d4c554091", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__user_nav : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("dropdown-item"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -101,7 +94,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n    </a>\r\n    <div class=\"dropdown-menu dropdown-menu-right\">\r\n        <div class=\"dropdown-header text-center\">\r\n            <strong>Account</strong>\r\n        </div>\r\n\r\n\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b1142b8cdf3cbad56e99e07abf1ac686b01b04417119", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b1142b8cdf3cbad56e99e07abf1ac686b01b04416944", async() => {
                 WriteLiteral("\r\n            <i class=\"fa fa-user\"></i> Profile\r\n        ");
             }
             );
@@ -121,7 +114,7 @@ using Microsoft.AspNetCore.Identity;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n\r\n        <a class=\"dropdown-item\" href=\"#\">\r\n            <i class=\"fa fa-wrench\"></i> Settings\r\n        </a>\r\n\r\n\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b1142b8cdf3cbad56e99e07abf1ac686b01b04418837", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b1142b8cdf3cbad56e99e07abf1ac686b01b04418662", async() => {
                 WriteLiteral(@"
             <script>
                 function logout() {

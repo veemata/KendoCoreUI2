@@ -1,22 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using MH.PLCM.Core.Entities;
 using MH.PLCM.Data;
+using MH.PLCM.Service;
+using MH.PLCM.Utils;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MH.PLCM.Service;
-using MH.PLCM.Models;
-using MH.PLCM.Utils;
-using AutoMapper;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace MH.PLCM
 {
@@ -32,8 +26,8 @@ namespace MH.PLCM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<KestrelServerOptions>(options =>  { options.AllowSynchronousIO = true;  });
-            services.Configure<IISServerOptions>(options => { options.AllowSynchronousIO = true;  });
+            services.Configure<KestrelServerOptions>(options => { options.AllowSynchronousIO = true; });
+            services.Configure<IISServerOptions>(options => { options.AllowSynchronousIO = true; });
 
             services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Northwind")));
             services.AddTransient<NorthwindService>();
@@ -46,8 +40,8 @@ namespace MH.PLCM
                 .AddClaimsPrincipalFactory<MhUserClaimsPrincipalFactory>(); // Add your claims
 
             services.AddAutoMapper(typeof(Startup)); // AutoMapper
-            services.AddControllersWithViews().AddJsonOptions(options =>  options.JsonSerializerOptions.PropertyNamingPolicy = null);
-            
+            services.AddControllersWithViews(/* options=> options.Filters.Add(typeof(DynamicAuthorizationFilter))*/) //Dynamic filtering
+                .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
             services.AddRazorPages();
             services.AddKendo();
         }
@@ -76,10 +70,10 @@ namespace MH.PLCM
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(name: "areas", pattern: "{area:exists}/{controller=Home}/{action=Index}"); //new for areas support
+                endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+
             });
         }
     }

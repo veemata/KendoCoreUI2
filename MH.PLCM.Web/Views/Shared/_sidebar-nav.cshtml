@@ -13,7 +13,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="Grid" asp-action="Index" asp-route-view="typography">
+            <a class="nav-link" asp-area="Northwind" asp-controller="Grid" asp-action="Index" asp-route-view="typography">
                 <i class="nav-icon icon-pencil"></i> Grid Samples
             </a>
         </li>
@@ -24,28 +24,33 @@
             </a>
             <ul class="nav-dropdown-items">
                 <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="IdentityUser" asp-action="Index">
+                    <a class="nav-link" asp-area="Admin" asp-controller="IdentityUser" asp-action="Index">
                         <i class="nav-icon icon-user">
 
                         </i> Users
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Role" asp-action="Index">
+                    <a class="nav-link" asp-area="Admin" asp-controller="Role" asp-action="Index">
                         <i class="nav-icon icon-puzzle"></i> Roles
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Permission" asp-action="Index">
+                    <a class="nav-link" asp-area="Admin" asp-controller="Permission" asp-action="Index">
                         <i class="nav-icon icon-puzzle"></i> Permissions
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" asp-area="" asp-controller="Grid" asp-action="Index" asp-route-view="base-carousel">
-                        <i class="nav-icon icon-puzzle"></i> Grid Samples
+                    <a class="nav-link" asp-area="Admin" asp-controller="UserInRoles" asp-action="Index">
+                        <i class="nav-icon icon-puzzle"></i> User-Roles
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="Admin" asp-controller="RolePermissions" asp-action="Index">
+                        <i class="nav-icon icon-puzzle"></i> Role-Permissions
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="nav-item nav-dropdown">

@@ -13,13 +13,6 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
-using MH.PLCM;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 2 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
 using MH.PLCM.Models;
 
@@ -28,7 +21,7 @@ using MH.PLCM.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\Views\_ViewImports.cshtml"
-using MH.PLCM.Models.Dtos;
+using MH.PLCM.Core.Entities;
 
 #line default
 #line hidden
@@ -55,7 +48,7 @@ using Microsoft.AspNetCore.Http.Features;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1eb4bcd5d9adf5e2f05f2c62f0e776ae8ee849ff", @"/Views/Shared/_CookieConsentPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9838e3d302c9bef2f4d6c467f2a39c2efd9fe77b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7930d175f13367389cfd920888a0790d4c554091", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__CookieConsentPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -115,7 +108,7 @@ using Microsoft.AspNetCore.Http.Features;
         <span class=""navbar-text mr-auto mt-2 mt-md-0"">Use this space to summarize your privacy and cookie use policy.</span>
         <div class=""my-2 my-md-0"">
           ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1eb4bcd5d9adf5e2f05f2c62f0e776ae8ee849ff6284", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1eb4bcd5d9adf5e2f05f2c62f0e776ae8ee849ff6109", async() => {
                 WriteLiteral("Learn More");
             }
             );

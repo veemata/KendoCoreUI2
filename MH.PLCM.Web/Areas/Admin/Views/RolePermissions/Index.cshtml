@@ -1,0 +1,54 @@
+﻿
+@model ApplicationRole
+@{
+    ViewData["Title"] = "Role Permission";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.ApplicationRoleId)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.ApplicationRoleName)
+</dd>
+
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.RolePermissions)
+</dt>
+
+
+
+<dd class="col-sm-10">
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Group</th>
+            <th>Code</th>
+            <th>Remarks</th>
+        </tr>
+        @foreach (var item in Model.RolePermissions)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PermissionId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Permission.PermissionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Permission.PermissionGroup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Permission.PermissionCode)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Permission.Remarks)
+                </td>
+            </tr>
+        }
+    </table>
+</dd>

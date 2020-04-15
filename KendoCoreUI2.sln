@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MH.PLCM", "MH.PLCM.Web\MH.PLCM.csproj", "{83179D68-599A-49BE-AED5-97B061D8EF4F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MH.PLCM.Data", "MH.PLCM.Data\MH.PLCM.Data.csproj", "{8960E3C6-A6D3-49DA-BAA3-F706EC73177F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MH.PLCM.Northwind.Data", "MH.PLCM.Data\MH.PLCM.Northwind.Data.csproj", "{8960E3C6-A6D3-49DA-BAA3-F706EC73177F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MH.PLCM.Northwind.Web", "MH.PLCM.Northwind\MH.PLCM.Northwind.Web.csproj", "{52D040B1-6ACC-4B08-A31A-02D09B8B4DC3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MH.PLCM.Core", "MH.PLCM.Core\MH.PLCM.Core.csproj", "{7AD24FE2-63B0-47CF-86EB-E83F1A190C18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{8960E3C6-A6D3-49DA-BAA3-F706EC73177F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8960E3C6-A6D3-49DA-BAA3-F706EC73177F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8960E3C6-A6D3-49DA-BAA3-F706EC73177F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52D040B1-6ACC-4B08-A31A-02D09B8B4DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D040B1-6ACC-4B08-A31A-02D09B8B4DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D040B1-6ACC-4B08-A31A-02D09B8B4DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52D040B1-6ACC-4B08-A31A-02D09B8B4DC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AD24FE2-63B0-47CF-86EB-E83F1A190C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD24FE2-63B0-47CF-86EB-E83F1A190C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD24FE2-63B0-47CF-86EB-E83F1A190C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD24FE2-63B0-47CF-86EB-E83F1A190C18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

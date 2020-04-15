@@ -1,0 +1,69 @@
+﻿@model ApplicationUserRoleViewModel
+@{
+    ViewData["Title"] = "User In Roles";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+
+</div>
+
+
+<div>
+    @(Html.Kendo().Grid<ApplicationUserRoleViewModel>()
+       .Name("userRoles")
+       .Columns(columns =>
+       {
+           columns.Select();
+           columns.Bound(r => r.ApplicationRoleId).Hidden().Width(200);
+           columns.Bound(r => r.ApplicationRoleViewModel).Sortable(false);
+       })
+       .ToolBar(toolBar =>
+       {
+           toolBar.Create();
+           toolBar.Save();
+       })
+        .Editable(editable => editable.Mode(GridEditMode.PopUp))
+        .Pageable()
+        .Sortable()
+        .Scrollable()
+        .HtmlAttributes(new { style = "height:550px;" })
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Batch(true)
+            .ServerOperation(false)
+            .Events(events => events.Error("error_handler"))
+            .Model(model =>
+            {
+                model.Id(p => p.ApplicationRoleId);
+            })
+        .PageSize(20)
+        .Read(read => read.Action("Read", "UserInRoles"))
+        .Create(create => create.Action("Create", "UserInRoles"))
+        .Destroy(destroy => destroy.Action("Delete", "UserInRoles"))
+       )
+     )
+
+</div>
+@section Scripts
+{
+    <script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function() {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+        }
+      
+
+    </script>
+
+}

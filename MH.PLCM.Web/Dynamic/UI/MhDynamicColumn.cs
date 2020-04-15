@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Dynamic
 {
@@ -10,7 +6,7 @@ namespace Dynamic
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        
+
         public string DisplayLabel { get; set; }
         public List<MhValidationProperty> ValidationProperties { get; set; }
         public int LookUpId { get; set; }
