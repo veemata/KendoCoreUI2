@@ -18,7 +18,7 @@ namespace MH.PLCM.Core.Entities
 
         [Required]
         [StringLength(150)]
-        public string PermissionCode { get; set; }
+        public string PermissionCode { get; set; } 
 
 
         [StringLength(250)]

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "TreePermissions";
+}
+
+<h1>TreePermissions</h1>
+
+<div class="demo-section k-content">
+    @(Html.Kendo().TreeView()
+        .Name("treeview")
+        .DataTextField("PermissionName")
+        .DataSource(dataSource => dataSource
+            .Read(read => read
+                .Action("TreePermissions", "RolePermissions")
+            )
+        )
+    )
+</div>

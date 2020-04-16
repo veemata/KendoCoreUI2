@@ -22,10 +22,12 @@
         .HtmlAttributes(new { style = "height:430px;" })
         .DataSource(dataSource => dataSource
             .Ajax()
+            .ServerOperation(true)
             .PageSize(6)
             .Read(read => read.Action("HierarchyBinding_Employees", "Grid"))
             )
         .Events(events => events.DataBound("dataBound"))
+     
 )
 
 @section Scripts
@@ -42,12 +44,15 @@
                 })
                 .DataSource(dataSource => dataSource
                     .Ajax()
+                    .ServerOperation(true)
                     .PageSize(10)
                     .Read(read => read.Action("HierarchyBinding_Orders", "Grid", new { employeeID = "#=EmployeeID#" }))
                 )
                 .Pageable()
                 .Sortable()
                 .ToClientTemplate()
+
+
         )
     </script>
     <script>

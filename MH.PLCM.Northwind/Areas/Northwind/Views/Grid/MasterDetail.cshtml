@@ -40,10 +40,13 @@
               .Resizable(rsb => rsb.Columns(true))
               .Reorderable(r => r.Columns(true))
               .Pageable(pageable => pageable.Refresh(true).PageSizes(true).ButtonCount(5))
+              
               .DataSource(dataSource => dataSource
                   .Ajax()
+                  .ServerOperation(true)
                   .PageSize(20)
-                  .Read(read => read.Action("Products_Read", "Grid").Data("onAdditionalData"))
+                  .Read(read => read.Action("Products_Read", "Grid").Data("onAdditionalData")
+                  )
               )
             )
         </div>

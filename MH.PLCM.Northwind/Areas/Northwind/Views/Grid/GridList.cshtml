@@ -32,6 +32,7 @@
         .DataSource(dataSource => dataSource
             .Ajax()
             .PageSize(20)
+            .ServerOperation(true)
             .Read(read => read.Action("Products_Read", "Grid"))
         )
     )

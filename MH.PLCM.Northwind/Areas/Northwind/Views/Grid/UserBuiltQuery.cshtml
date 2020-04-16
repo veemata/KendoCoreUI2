@@ -10,7 +10,9 @@
             @(Html.Kendo().DataSource<Product>()
                .Name("dataSource1")
                 .Ajax(dataSource => dataSource
-                        .Read(read => read.Action("Products_Read", "Grid"))
+                        .Read(read => read.Action("Products_Read", "Grid")
+                        )
+                        .ServerOperation(true)
             ))
         </div>
 
@@ -33,7 +35,7 @@
                                 <div class="row">
                                     <div class="col-12 col-md-6 float-right">
                                         <span>Seting Name:</span>
-                                        <input type="text" id="fname" name="fname" />
+                                        <input type="text" id="fsname" name="fname" />
                                         <a href="#" class="k-button" id="saveFilter">Save</a>
                                     </div>
                                     <div class="col-12 col-md-6 float-right">
@@ -59,7 +61,7 @@
             <div class="col-md-6 float-left"> <h4> Product Details </h4></div>
             <div class="col-12 col-md-3 float-right">
                 <span>Seting Name:</span>
-                <input type="text" id="fname" name="fname" />
+                <input type="text" id="gsname" name="fname" />
                 <a href="#" class="k-button" id="saveGridState">Save</a>
             </div>
             <div class="col-12 col-md-3 float-right">
@@ -94,6 +96,7 @@
                     .Reorderable(r => r.Columns(true))
                     .Pageable(pageable => pageable.Refresh(true).PageSizes(true).ButtonCount(5))
                     .DataSource("dataSource1")
+
                 )
             </div>
         </div>

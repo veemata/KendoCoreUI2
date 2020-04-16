@@ -228,7 +228,8 @@ namespace MH.PLCM.Controllers
             }
             else
             {
-                return (FormatDataResult(_srv.GetProducts(), request));
+                var list = FormatDataResult(_srv.GetProducts(), request);
+                return (list);
             }
         }
 

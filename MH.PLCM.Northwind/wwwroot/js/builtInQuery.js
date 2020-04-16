@@ -4,7 +4,7 @@
         $.ajax({
             type: "POST",
             cache: false,
-            url: "/Grid/SaveProductGridSettings",
+            url: "/Northwind/Grid/SaveProductGridSettings",
             data: { optionsData: gridSettings }
         });
         console.log('Grid Status Saved');
@@ -13,7 +13,7 @@
 
     $("#loadGridState").click(function (e) {
         $.ajax({
-            type: "POST", cache: false, url: "GetProductGridSettings", data: {},
+            type: "POST", cache: false, url: "/Northwind/Grid/GetProductGridSettings", data: {},
             success: function (options) {
                 if (options) {
                     $("#grdProducts").data("kendoGrid").setOptions(JSON.parse(options));
@@ -32,7 +32,7 @@
         $.ajax({
             type: "POST",
             cache: false,
-            url: "/Grid/SaveGridFilterSettings",
+            url: "~/Northwind/Grid/SaveProductGridSettings",
             data: { optionsData: filterSettings }
         });
         console.log('Grid Filter  Saved');
@@ -40,7 +40,7 @@
 
     $("#loadFilter").click(function (e) {
         $.ajax({
-            type: "POST", cache: false, url: "GetProductGridFilterSettings", data: {},
+            type: "POST", cache: false, url: "/Northwind/Grid/GetProductGridFilterSettings", data: {},
             success: function (options) {
                 if (options) {
                     $("#filter").getKendoFilter().setOptions(JSON.parse(options));

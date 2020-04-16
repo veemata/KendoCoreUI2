@@ -8,6 +8,7 @@ C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\bin\Debug\netcoreap
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\bin\Debug\netcoreapp3.1\MH.PLCM.Core.pdb
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\bin\Debug\netcoreapp3.1\MH.PLCM.Northwind.Data.pdb
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.csprojAssemblyReference.cache
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.csproj.CoreCompileInputs.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.RazorAssemblyInfo.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.RazorAssemblyInfo.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.AssemblyInfoInputs.cache
@@ -23,7 +24,10 @@ C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreap
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\Grid\MasterDetail.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\Grid\ParentChild.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\Grid\UserBuiltQuery.cshtml.g.cs
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\PopupAddEdit\Index.cshtml.g.cs
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\PopupAddEdit\_AddEditCategory.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\_ViewImports.cshtml.g.cs
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\_ViewStart.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.RazorTargetAssemblyInfo.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.RazorTargetAssemblyInfo.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.Views.pdb
@@ -32,5 +36,3 @@ C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreap
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\staticwebassets\MH.PLCM.Northwind.Web.StaticWebAssets.xml
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.dll
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.pdb
-C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\_ViewStart.cshtml.g.cs
-C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.csproj.CoreCompileInputs.cache
