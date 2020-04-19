@@ -9,9 +9,9 @@
                 .Name("user")
                 .Columns(columns =>
                 {
-                    columns.Bound(r => r.PermissionId).Hidden(true);
+                    columns.Bound(r => r.PermissionId);
                     columns.Bound(r => r.PermissionName);
-                    columns.Bound(r => r.PermissionGroup);
+                    columns.Bound(r => r.PermissionParentId);
                     columns.Bound(r => r.PermissionCode);
                     columns.Bound(r => r.Remarks);
                     columns.Command(command => { command.Edit(); }).Width(300);

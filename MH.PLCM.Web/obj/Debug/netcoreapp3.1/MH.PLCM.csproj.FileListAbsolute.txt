@@ -920,9 +920,6 @@ C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\bin\Debug\netcoreapp3.1\M
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\bin\Debug\netcoreapp3.1\MH.PLCM.Northwind.Data.pdb
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\bin\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.pdb
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.csprojAssemblyReference.cache
-C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.csproj.CoreCompileInputs.cache
-C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.RazorAssemblyInfo.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.RazorAssemblyInfo.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.AssemblyInfoInputs.cache
@@ -938,6 +935,7 @@ C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\R
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\IdentityUser\Lockout.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\IdentityUser\Update.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Permission\Index.cshtml.g.cs
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Permission\ReadTree.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\RolePermissions\Index.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\RolePermissions\TreePermissions.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Role\Index.cshtml.g.cs
@@ -980,3 +978,6 @@ C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\s
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.dll
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.pdb
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.genruntimeconfig.cache
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.csproj.CoreCompileInputs.cache
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.MvcApplicationPartsAssemblyInfo.cache

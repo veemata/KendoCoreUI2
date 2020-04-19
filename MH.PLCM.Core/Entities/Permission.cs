@@ -13,8 +13,7 @@ namespace MH.PLCM.Core.Entities
         [StringLength(100)]
         public string PermissionName { get; set; }
 
-        [StringLength(100)]
-        public string PermissionGroup { get; set; }
+        public int?  PermissionParentId { get; set; }
 
         [Required]
         [StringLength(150)]

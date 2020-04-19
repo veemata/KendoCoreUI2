@@ -32,6 +32,29 @@ namespace MH.PLCM.Controllers
             return Json(_db.Permissions.AsNoTracking().ToDataSourceResult(request));
         }
 
+
+        [HttpPost]
+        public void SavePermissions(RolePermissionsDto rto)
+        {
+
+            Response.Redirect("Index");
+        }
+
+        public IActionResult ReadTree()
+        {
+            ViewBag.treeList = new ApplicationService(_db).GetPermissionsTree();
+            RolePermissionsDto dto = new RolePermissionsDto();
+            return View(dto);
+        }
+
+        /*
+        public JsonResult ReadTreeData(int? PermissionId)
+        {
+           
+            return Json(new ApplicationService(_db).GetPermissions(PermissionId));
+        }
+        */
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -73,5 +96,10 @@ namespace MH.PLCM.Controllers
             return Json(new[] { storePerm }.ToDataSourceResult(request, ModelState));
         }
 
+    }
+
+    public class RolePermissionsDto
+    {
+        public string SelectedRolesIds { get; set; }
     }
 }

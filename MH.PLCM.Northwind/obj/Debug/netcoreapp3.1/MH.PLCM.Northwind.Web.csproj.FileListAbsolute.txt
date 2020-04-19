@@ -26,6 +26,7 @@ C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreap
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\Grid\UserBuiltQuery.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\PopupAddEdit\Index.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\PopupAddEdit\_AddEditCategory.cshtml.g.cs
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\Shared\_BootStrapDeleteConfirm.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\_ViewImports.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\Razor\Areas\Northwind\Views\_ViewStart.cshtml.g.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Northwind\obj\Debug\netcoreapp3.1\MH.PLCM.Northwind.Web.RazorTargetAssemblyInfo.cache
