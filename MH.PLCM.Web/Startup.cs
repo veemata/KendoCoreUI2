@@ -31,6 +31,7 @@ namespace MH.PLCM
 
             services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Northwind")));
             services.AddTransient<NorthwindService>();
+            services.AddTransient<ApplicationService>();
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 

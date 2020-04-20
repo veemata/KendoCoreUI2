@@ -13,6 +13,8 @@ namespace MH.PLCM.Data
         public virtual DbSet<Permission> Permissions { get; set; }
         public virtual DbSet<RolePermission> RolePermission { get; set; }
 
+        public virtual DbSet<MenuItem> Menus { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

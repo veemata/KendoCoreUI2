@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MHMenu = MH.PLCM.Core.Entities.Menu;
+using MHMenuItem = MH.PLCM.Core.Entities.MenuItem;
 
 namespace MH.PLCM.Data
 {
@@ -65,6 +67,29 @@ namespace MH.PLCM.Data
             }
         }
 
+        public MHMenu GetMenuData()
+        {
+            MHMenu m = new Core.Entities.Menu { MenuId = 1, MenuName = "Root" };
+            var allItems = _db.Menus.ToList();
+            m.MenuItems = allItems.Where(mi => mi.ParentMenuItemId == 1).ToList();
+            foreach (MHMenuItem mi in m.MenuItems)
+            {
+                PopulateChildren(mi, allItems);
+            }
+            return (m);
+        }
+        private  void PopulateChildren(MHMenuItem parent, List<MHMenuItem> all)
+        {
+            if (all.Where(ai => ai.ParentMenuItemId == parent.Id).Count() > 0)
+            {
+                parent.Children = all.Where(ai => ai.ParentMenuItemId == parent.Id).ToList();
+                foreach (MHMenuItem mi in parent.Children)
+                {
+                    PopulateChildren(mi, all);
+                }
+            }
+
+        }
 
     }
 

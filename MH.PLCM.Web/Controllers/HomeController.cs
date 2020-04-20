@@ -1,4 +1,5 @@
-﻿using MH.PLCM.Models;
+﻿using MH.PLCM.Data;
+using MH.PLCM.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,10 +11,14 @@ namespace MH.PLCM.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _db;
+        private readonly ApplicationService _srv;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
         {
             _logger = logger;
+            _db = db;
+            _srv = new ApplicationService(_db);
         }
 
         public IActionResult Index()

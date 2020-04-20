@@ -1,38 +1,85 @@
-﻿<nav class='sidebar-nav'>
-    <ul class='nav'>
-        <li class='nav-item'>
-            <a class='nav-link' href='/Home/Index'>
-                <i class='nav-icon icon-speedometer'></i>Dashboard  <span class="badge badge-primary">NEW</span>
-            </a>
-        </li>
-        <li class='nav-item'>
-            <a class='nav-link' href='/colors'>
-                <i class='nav-icon icon-drop'></i>Colors
-            </a>
-        </li>
-        <li class='nav-item'>
-            <a class='nav-link' href='/typography'>
-                <i class='nav-icon icon-pencil'></i>Typography
-            </a>
-        </li>
+﻿<div class="app-body">
+    <div class="sidebar">
 
-        <li class='nav-item nav-dropdown'>
-            <a class='nav-link nav-dropdown-toggle' href='#'>
-                <i class='nav-icon icon-puzzle'></i> Parent
-            </a>
-            <ul class='nav-dropdown-items'>
+        <nav class='sidebar-nav'>
+            <ul class='nav'>
                 <li class='nav-item'>
-                    <a class='nav-link' href='/base/breadcrumbs'>
-                        <i class='nav-icon icon-puzzle'></i>Child1
+                    <a class='nav-link' href='/Home/Index'>
+                        <i class='nav-icon icon-speedometer'></i>Dashboard  <span class=\'badge badge-primary\'>NEW
                     </a>
                 </li>
                 <li class='nav-item'>
-                    <a class='nav-link' href='/base/cards'>
-                        <i class='nav-icon icon-puzzle'></i>Child2
+                    <a class='nav-link' href='/Engineering/PE'>
+                        <i class='fa fa-compass'></i>Product Explorer
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/Northwind/Grid/Index'>
+                        <i class='nav-icon icon-pencil'></i>Grid Samples
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='#'>
+                        <i class='nav-icon icon-lock-open'></i>Administration
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/Admin/IdentityUser/Index'>
+                        <i class='nav-icon icon-user'></i>Users
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/Admin/Role/Index'>
+                        <i class='nav-icon icon-puzzle'></i>Roles
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/Admin/Permission/Index'>
+                        <i class='nav-icon icon-puzzle'></i>Permissions
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/Admin/UserInRoles/Index'>
+                        <i class='nav-icon icon-puzzle'></i>UserInRoles
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/Admin/RolePermisssions/Index'>
+                        <i class='nav-icon icon-puzzle'></i>Role Permissions
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='#'>
+                        <i class='nav-icon icon-cursor'></i>C I C
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/Admin/Buttons'>
+                        <i class='nav-icon icon-cursor'></i>Buttons
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/Admin/ButtonGroup'>
+                        <i class='nav-icon icon-cursor'></i>Buttons Group
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/CoreUI'>
+                        <i class='nav-icon icon-star'></i>New Additions
+                    </a>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='/NACO/List'>
+                        <i class='badge badge-success'></i>List
                     </a>
                 </li>
 
             </ul>
-        </li>
-    </ul>
-</nav>
+        </nav>
+        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+        <!--
+        <partial name="_sidebar-nav" />
+        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+         -->
+    </div>

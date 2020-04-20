@@ -144,6 +144,43 @@ namespace MH.PLCM.Data.Migrations
                     b.ToTable("UserApplicationRoles");
                 });
 
+            modelBuilder.Entity("MH.PLCM.Core.Entities.MenuItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CssClassForIcon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LinkUrl")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int>("MenuId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MenuItemId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MenuOrder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MenuText")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<int>("ParentMenuItemId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MenuItemId");
+
+                    b.ToTable("Menus");
+                });
+
             modelBuilder.Entity("MH.PLCM.Core.Entities.Permission", b =>
                 {
                     b.Property<int>("PermissionId")
@@ -344,6 +381,13 @@ namespace MH.PLCM.Data.Migrations
                     b.HasOne("MH.PLCM.Core.Entities.ApplicationUser", "ApplicationUser")
                         .WithMany()
                         .HasForeignKey("ApplicationUserId");
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.MenuItem", b =>
+                {
+                    b.HasOne("MH.PLCM.Core.Entities.MenuItem", null)
+                        .WithMany("Children")
+                        .HasForeignKey("MenuItemId");
                 });
 
             modelBuilder.Entity("MH.PLCM.Core.Entities.RolePermission", b =>

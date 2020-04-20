@@ -22,4 +22,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MH.PLCM.Core\MH.PLCM.Core.csproj" />
+  </ItemGroup>
+
 </Project>

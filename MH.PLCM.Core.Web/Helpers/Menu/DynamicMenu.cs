@@ -1,4 +1,5 @@
 ﻿using Dynamic;
+using MH.PLCM.Core.Entities;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
@@ -10,14 +11,11 @@ namespace MH.PLCM
     public static class DynamicMenu
     {
 
-        public static string BuildMenuItems()
+        public static string RenderMenu(Menu menu)
         {
-            Menu m = SampleMenu.GetMenuData();
             StringBuilder sb = new StringBuilder();
 
-            // not rendering  </li> </ ul > after end of parent menu
-
-            RenderMenuItems(m.MenuItems, sb);
+            RenderMenuItems(menu.MenuItems, sb);
             RenderFullMenuWithChildItems(sb);
             RenderBottomCollapseMenu(sb);
             return (sb.ToString());
@@ -36,13 +34,13 @@ namespace MH.PLCM
                 {
                     sb.AppendLine(RenderMenuItem(itm));
                 }
-                if(itm.Children != null )
+                if (itm.Children != null)
                 {
                     RenderMenuItems(itm.Children, sb);
-                }
-                else if (string.IsNullOrEmpty(itm.LinkUrl))
-                {
-                    sb.AppendLine(EndDropdownMenu().ToString());
+                    if (string.IsNullOrEmpty(itm.LinkUrl))
+                    {
+                        sb.AppendLine(EndDropdownMenu().ToString());
+                    }
                 }
             }
         }

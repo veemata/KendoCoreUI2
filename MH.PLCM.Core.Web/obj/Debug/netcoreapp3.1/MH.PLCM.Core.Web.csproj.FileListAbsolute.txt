@@ -7,3 +7,6 @@ C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core.Web\bin\Debug\netcoreapp
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core.Web\bin\Debug\netcoreapp3.1\MH.PLCM.Core.Web.pdb
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core.Web\obj\Debug\netcoreapp3.1\MH.PLCM.Core.Web.dll
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core.Web\obj\Debug\netcoreapp3.1\MH.PLCM.Core.Web.pdb
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core.Web\bin\Debug\netcoreapp3.1\MH.PLCM.Core.dll
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core.Web\bin\Debug\netcoreapp3.1\MH.PLCM.Core.pdb
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core.Web\obj\Debug\netcoreapp3.1\MH.PLCM.Core.Web.csproj.CopyComplete
