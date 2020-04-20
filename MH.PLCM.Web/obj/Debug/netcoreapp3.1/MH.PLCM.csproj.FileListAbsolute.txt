@@ -981,3 +981,9 @@ C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\M
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.csproj.CoreCompileInputs.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\MH.PLCM.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Server.Kestrel.Https.dll
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\bin\Debug\netcoreapp3.1\MH.PLCM.Core.Web.dll
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\bin\Debug\netcoreapp3.1\MH.PLCM.Core.Web.pdb
+C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Web\obj\Debug\netcoreapp3.1\Razor\TestMenu.cshtml.g.cs

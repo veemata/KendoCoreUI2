@@ -20,11 +20,11 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Helpers\" />
     <Folder Include="ViewComponents\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MH.PLCM.Core.Web\MH.PLCM.Core.Web.csproj" />
     <ProjectReference Include="..\MH.PLCM.Core\MH.PLCM.Core.csproj" />
     <ProjectReference Include="..\MH.PLCM.Data\MH.PLCM.Northwind.Data.csproj" />
     <ProjectReference Include="..\MH.PLCM.Northwind\MH.PLCM.Northwind.Web.csproj" />
