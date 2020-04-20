@@ -17,13 +17,13 @@
                 )
     </div>
 
-    <input asp-for="@Model.SelectedRolesIds" value=""  />
+    <input type="hidden" asp-for="@Model.SelectedRolesIds" value=""  />
     <button type="submit">Save</button>
 </form>
 
 
 <script type="text/javascript">
-
+   
     function onSelect(e) {
         e.preventDefault();
         var checkbox = $(e.node).find(":checkbox");
@@ -46,8 +46,8 @@
             message = "";
         }
 
-        $("#SelectedRolesIds").value = message;
-        alert(message);
+        $("#SelectedRolesIds").val(message);
+       // alert(message);
     }
 
     function checkedNodeIds(nodes, checkedNodes) {
