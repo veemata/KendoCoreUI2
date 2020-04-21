@@ -23,7 +23,7 @@ namespace MH.PLCM.Areas.Admin.Controllers
         // GET: Admin/MenuItems
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Menus.ToListAsync());
+            return View(await _context.AppMenuItems.ToListAsync());
         }
 
         // GET: Admin/MenuItems/Details/5
@@ -34,7 +34,7 @@ namespace MH.PLCM.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var menuItem = await _context.Menus
+            var menuItem = await _context.AppMenuItems
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (menuItem == null)
             {
@@ -55,7 +55,7 @@ namespace MH.PLCM.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MenuText,LinkUrl,CssClassForIcon,MenuOrder,ParentMenuItemId,MenuId")] MenuItem menuItem)
+        public async Task<IActionResult> Create([Bind("Id,MenuText,LinkUrl,CssClassForIcon,MenuOrder,ParentMenuItemId,MenuId")] AppMenuItem menuItem)
         {
             if (ModelState.IsValid)
             {
@@ -74,7 +74,7 @@ namespace MH.PLCM.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var menuItem = await _context.Menus.FindAsync(id);
+            var menuItem = await _context.AppMenuItems.FindAsync(id);
             if (menuItem == null)
             {
                 return NotFound();
@@ -87,7 +87,7 @@ namespace MH.PLCM.Areas.Admin.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MenuText,LinkUrl,CssClassForIcon,MenuOrder,ParentMenuItemId,MenuId")] MenuItem menuItem)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,MenuText,LinkUrl,CssClassForIcon,MenuOrder,ParentMenuItemId,MenuId")] AppMenuItem menuItem)
         {
             if (id != menuItem.Id)
             {
@@ -125,7 +125,7 @@ namespace MH.PLCM.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var menuItem = await _context.Menus
+            var menuItem = await _context.AppMenuItems
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (menuItem == null)
             {
@@ -140,15 +140,15 @@ namespace MH.PLCM.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var menuItem = await _context.Menus.FindAsync(id);
-            _context.Menus.Remove(menuItem);
+            var menuItem = await _context.AppMenuItems.FindAsync(id);
+            _context.AppMenuItems.Remove(menuItem);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool MenuItemExists(int id)
         {
-            return _context.Menus.Any(e => e.Id == id);
+            return _context.AppMenuItems.Any(e => e.Id == id);
         }
     }
 }

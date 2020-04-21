@@ -1,7 +1,6 @@
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core\bin\Debug\netstandard2.1\MH.PLCM.Core.deps.json
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core\bin\Debug\netstandard2.1\MH.PLCM.Core.dll
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core\bin\Debug\netstandard2.1\MH.PLCM.Core.pdb
-C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core\obj\Debug\netstandard2.1\MH.PLCM.Core.csprojAssemblyReference.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core\obj\Debug\netstandard2.1\MH.PLCM.Core.csproj.CoreCompileInputs.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core\obj\Debug\netstandard2.1\MH.PLCM.Core.AssemblyInfoInputs.cache
 C:\Users\3051752\source\repos\KendoCoreUI2\MH.PLCM.Core\obj\Debug\netstandard2.1\MH.PLCM.Core.AssemblyInfo.cs

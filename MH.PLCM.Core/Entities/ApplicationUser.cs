@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MH.PLCM.Core.Entities
 {
@@ -9,6 +11,9 @@ namespace MH.PLCM.Core.Entities
         public Location Location { get; set; }
         public Department Department { get; set; }
         public ContributionLevel ContributionLevel { get; set; }
+
+        [InverseProperty(nameof(AppUserRole.IdNavigation))]
+        public virtual ICollection<AppUserRole> AppUserRoles { get; set; }
     }
 
     public enum Company

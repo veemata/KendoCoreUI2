@@ -8,7 +8,7 @@ namespace MH.PLCM.Models.Dtos
     {
         public AutoMapping()
         {
-            CreateMap<Permission, Permission>(); // means you want to map from User to UserDTO
+            CreateMap<AppPermission, AppPermission>(); // means you want to map from User to UserDTO
         }
     }
 }

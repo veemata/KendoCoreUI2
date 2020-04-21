@@ -14,51 +14,27 @@
    "Tables": [
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_EngArtworkRequest]"
+         "Name": "[dbo].[AppMenuItems]"
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_EngArtworkRequestPlate]"
+         "Name": "[dbo].[AppPermissions]"
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_Engineering]"
+         "Name": "[dbo].[AppRolePermission]"
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_Filter]"
+         "Name": "[dbo].[AppRoles]"
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_History]"
+         "Name": "[dbo].[AppUserRole]"
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_MSS]"
-      },
-      {
-         "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_NewPart]"
-      },
-      {
-         "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_Packaging]"
-      },
-      {
-         "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_PackagingValImages]"
-      },
-      {
-         "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_Quality]"
-      },
-      {
-         "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_Trigger]"
-      },
-      {
-         "HasPrimaryKey": true,
-         "Name": "[dbo].[NACO_Validations]"
+         "Name": "[dbo].[AspNetUsers]"
       }
    ],
    "UseDatabaseNames": false,

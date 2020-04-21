@@ -22,9 +22,9 @@ namespace MH.PLCM
         }
 
 
-        private static void RenderMenuItems(ICollection<MenuItem> items, StringBuilder sb)
+        private static void RenderMenuItems(ICollection<AppMenuItem> items, StringBuilder sb)
         {
-            foreach (MenuItem itm in items)
+            foreach (AppMenuItem itm in items)
             {
                 if (itm.LinkUrl.Equals("#") || string.IsNullOrEmpty(itm.LinkUrl))
                 {
@@ -61,7 +61,7 @@ namespace MH.PLCM
 
         }
 
-        private static void RenderDropdownBegin(MenuItem item, StringBuilder sb)
+        private static void RenderDropdownBegin(AppMenuItem item, StringBuilder sb)
         {
             sb.AppendLine((string.Format(@" 
                                 <li class='nav-item nav-dropdown'>
@@ -71,7 +71,7 @@ namespace MH.PLCM
                                  <ul class='nav-dropdown-items'>", item.CssClassForIcon, item.MenuText)));
         }
 
-        private static void RenderMenuItem(MenuItem item, StringBuilder sb)
+        private static void RenderMenuItem(AppMenuItem item, StringBuilder sb)
         {
             sb.AppendLine(string.Format(@"<li class='nav-item'>
                                        <a class='nav-link' href='{0}'>

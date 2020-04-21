@@ -5,11 +5,11 @@
 
 <h2>Application Users</h2>
 
-@(Html.Kendo().Grid<ApplicationRole>()
+@(Html.Kendo().Grid<AppRole>()
                 .Name("role")
                 .Columns(columns =>
                 {
-                    columns.Bound(r => r.ApplicationRoleName);
+                    columns.Bound(r => r.Name);
                     columns.Command(command => { command.Edit(); }).Width(300);
                 })
                 .ToolBar(toolbar =>
@@ -28,7 +28,7 @@
                     .Events(events => events.Error("error_handler"))
                     .Model(model =>
                     {
-                        model.Id(r => r.ApplicationRoleId);
+                        model.Id(r => r.AppRoleId);
                     })
                     .Create(update => update.Action("Create", "Role"))
                     .Update(update => update.Action("Update", "Role"))

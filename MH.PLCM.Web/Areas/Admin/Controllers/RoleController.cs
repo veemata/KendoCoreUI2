@@ -30,25 +30,25 @@ namespace MH.PLCM.Controllers
 
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
-            return Json(_db.ApplicationRoles.ToDataSourceResult(request));
+            return Json(_db.AppRoles.ToDataSourceResult(request));
         }
 
         public IActionResult Create() => View();
 
         [AcceptVerbs("Post")]
-        public async Task<ActionResult> Create([DataSourceRequest] DataSourceRequest request, ApplicationRole role)
+        public async Task<ActionResult> Create([DataSourceRequest] DataSourceRequest request, AppRole role)
         {
             if (role != null && ModelState.IsValid)
             {
-                ApplicationRole storeRole = _db.ApplicationRoles
-                    .Where(ar => ar.ApplicationRoleId == role.ApplicationRoleId)
+                AppRole storeRole = _db.AppRoles
+                    .Where(ar => ar.AppRoleId == role.AppRoleId)
                     .FirstOrDefault();
                 if (storeRole == null)
                 {
                     try
                     {
 
-                        _db.ApplicationRoles.Add(role);
+                        _db.AppRoles.Add(role);
                         await _db.SaveChangesAsync();
                     }
                     catch
@@ -69,18 +69,18 @@ namespace MH.PLCM.Controllers
 
 
         [AcceptVerbs("Post")]
-        public async Task<ActionResult> Update([DataSourceRequest] DataSourceRequest request, ApplicationRole role)
+        public async Task<ActionResult> Update([DataSourceRequest] DataSourceRequest request, AppRole role)
         {
-            ApplicationRole storeRole = null;
+            AppRole storeRole = null;
             if (role != null && ModelState.IsValid)
             {
-                storeRole = _db.ApplicationRoles.Where(ar => ar.ApplicationRoleId == role.ApplicationRoleId).FirstOrDefault();
+                storeRole = _db.AppRoles.Where(ar => ar.AppRoleId == role.AppRoleId).FirstOrDefault();
                 if (storeRole != null)
                 {
                     try
                     {
-                        _mapper.Map<ApplicationRole, ApplicationRole>(role, storeRole);
-                        _db.ApplicationRoles.Update(storeRole);
+                        _mapper.Map<AppRole, AppRole>(role, storeRole);
+                        _db.AppRoles.Update(storeRole);
                         await _db.SaveChangesAsync();
                     }
                     catch

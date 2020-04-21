@@ -1,5 +1,5 @@
 ﻿
-@model ApplicationRole
+@model AppRole
 @{
     ViewData["Title"] = "Role Permission";
 }
@@ -7,14 +7,14 @@
 <h1>@ViewData["Title"]</h1>
 
 <dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model.ApplicationRoleId)
+    @Html.DisplayNameFor(model => model.AppRoleId)
 </dt>
 <dd class="col-sm-10">
-    @Html.DisplayFor(model => model.ApplicationRoleName)
+    @Html.DisplayFor(model => model.Name)
 </dd>
 
 <dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model.RolePermissions)
+    @Html.DisplayNameFor(model => model.AppRolePermissions)
 </dt>
 
 
@@ -28,20 +28,20 @@
             <th>Code</th>
             <th>Remarks</th>
         </tr>
-        @foreach (var item in Model.RolePermissions)
+        @foreach (var item in Model.AppRolePermissions)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.PermissionId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Permission.PermissionName)
+                    @Html.DisplayFor(modelItem => item.Permission.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Permission.PermissionParentId)
+                    @Html.DisplayFor(modelItem => item.Permission.ParentId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Permission.PermissionCode)
+                    @Html.DisplayFor(modelItem => item.Permission.Code)
                 </td>
 
 

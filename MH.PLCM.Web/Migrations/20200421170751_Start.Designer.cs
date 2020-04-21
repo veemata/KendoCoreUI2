@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace MH.PLCM.Data.Migrations
+namespace MH.PLCM.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200413213120_UserToApplication M-M Relation")]
-    partial class UserToApplicationMMRelation
+    [Migration("20200421170751_Start")]
+    partial class Start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,32 +21,132 @@ namespace MH.PLCM.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("MH.PLCM.Models.ApplicationRole", b =>
+            modelBuilder.Entity("MH.PLCM.Core.Entities.AppMenuItem", b =>
                 {
-                    b.Property<int>("ApplicationRoleId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ApplicationRoleName")
+                    b.Property<string>("CssClassForIcon")
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("PermissionId")
+                    b.Property<string>("LinkUrl")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
+                    b.Property<int?>("MenuId")
                         .HasColumnType("int");
 
-                    b.HasKey("ApplicationRoleId");
+                    b.Property<int>("MenuOrder")
+                        .HasColumnType("int");
 
-                    b.HasIndex("ApplicationRoleName")
+                    b.Property<string>("MenuText")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<int>("ParentMenuItemId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MenuId");
+
+                    b.ToTable("AppMenuItems");
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.AppPermission", b =>
+                {
+                    b.Property<int>("PermissionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Remarks")
+                        .HasColumnType("nvarchar(250)")
+                        .HasMaxLength(250);
+
+                    b.HasKey("PermissionId");
+
+                    b.HasIndex("Name")
                         .IsUnique()
-                        .HasFilter("[ApplicationRoleName] IS NOT NULL");
+                        .HasFilter("([Name] IS NOT NULL)");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("AppPermissions");
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.AppRole", b =>
+                {
+                    b.Property<int>("AppRoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Remarks")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.HasKey("AppRoleId");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("([Name] IS NOT NULL)");
+
+                    b.ToTable("AppRoles");
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.AppRolePermission", b =>
+                {
+                    b.Property<int>("AppRoleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PermissionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AppRoleId", "PermissionId");
 
                     b.HasIndex("PermissionId");
 
-                    b.ToTable("ApplicationRoles");
+                    b.ToTable("AppRolePermission");
                 });
 
-            modelBuilder.Entity("MH.PLCM.Models.ApplicationUser", b =>
+            modelBuilder.Entity("MH.PLCM.Core.Entities.AppUserRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AppRoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id", "AppRoleId");
+
+                    b.HasIndex("AppRoleId")
+                        .HasName("IX_AppUserRole_RoleId");
+
+                    b.ToTable("AppUserRole");
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -124,84 +224,6 @@ namespace MH.PLCM.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("MH.PLCM.Models.ApplicationUserRole", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ApplicationRoleId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UserId", "ApplicationRoleId");
-
-                    b.HasIndex("ApplicationRoleId");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.ToTable("ApplicationUserRole");
-                });
-
-            modelBuilder.Entity("MH.PLCM.Models.Permission", b =>
-                {
-                    b.Property<int>("PermissionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Action")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("ApplicationArea")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Controller")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("PermissionGroup")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("PermissionName")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Remarks")
-                        .HasColumnType("nvarchar(250)")
-                        .HasMaxLength(250);
-
-                    b.HasKey("PermissionId");
-
-                    b.HasIndex("PermissionName")
-                        .IsUnique()
-                        .HasFilter("[PermissionName] IS NOT NULL");
-
-                    b.ToTable("Permissions");
-                });
-
-            modelBuilder.Entity("MH.PLCM.Models.RolePermission", b =>
-                {
-                    b.Property<int>("ApplicationRoleId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PermissionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ApplicationRoleId", "PermissionId");
-
-                    b.HasIndex("PermissionId");
-
-                    b.ToTable("RolePermission");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -339,38 +361,49 @@ namespace MH.PLCM.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MH.PLCM.Models.ApplicationRole", b =>
+            modelBuilder.Entity("MH.PLCM.Core.Entities.AppMenuItem", b =>
                 {
-                    b.HasOne("MH.PLCM.Models.Permission", "Permission")
-                        .WithMany()
-                        .HasForeignKey("PermissionId");
+                    b.HasOne("MH.PLCM.Core.Entities.AppMenuItem", "Menu")
+                        .WithMany("Children")
+                        .HasForeignKey("MenuId")
+                        .HasConstraintName("FK_AppMenuItems_AppMenuItems");
                 });
 
-            modelBuilder.Entity("MH.PLCM.Models.ApplicationUserRole", b =>
+            modelBuilder.Entity("MH.PLCM.Core.Entities.AppPermission", b =>
                 {
-                    b.HasOne("MH.PLCM.Models.ApplicationRole", "ApplicationRole")
-                        .WithMany("RoleUsers")
-                        .HasForeignKey("ApplicationRoleId")
+                    b.HasOne("MH.PLCM.Core.Entities.AppPermission", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId")
+                        .HasConstraintName("FK_AppPermissions_AppPermissions");
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.AppRolePermission", b =>
+                {
+                    b.HasOne("MH.PLCM.Core.Entities.AppRole", "AppRole")
+                        .WithMany("AppRolePermissions")
+                        .HasForeignKey("AppRoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MH.PLCM.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId");
-                });
-
-            modelBuilder.Entity("MH.PLCM.Models.RolePermission", b =>
-                {
-                    b.HasOne("MH.PLCM.Models.ApplicationRole", "ApplicationRole")
-                        .WithMany("RolePermissions")
-                        .HasForeignKey("ApplicationRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MH.PLCM.Models.Permission", "Permission")
-                        .WithMany("RolePermissions")
+                    b.HasOne("MH.PLCM.Core.Entities.AppPermission", "Permission")
+                        .WithMany("AppRolePermissions")
                         .HasForeignKey("PermissionId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.AppUserRole", b =>
+                {
+                    b.HasOne("MH.PLCM.Core.Entities.AppRole", "AppRole")
+                        .WithMany("AppUserRoles")
+                        .HasForeignKey("AppRoleId")
+                        .HasConstraintName("FK_AppUserRole_AppRoles")
+                        .IsRequired();
+
+                    b.HasOne("MH.PLCM.Core.Entities.ApplicationUser", "IdNavigation")
+                        .WithMany("AppUserRoles")
+                        .HasForeignKey("Id")
+                        .HasConstraintName("FK_AppUserRole_AspNetUsers")
                         .IsRequired();
                 });
 
@@ -385,7 +418,7 @@ namespace MH.PLCM.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("MH.PLCM.Models.ApplicationUser", null)
+                    b.HasOne("MH.PLCM.Core.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -394,7 +427,7 @@ namespace MH.PLCM.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("MH.PLCM.Models.ApplicationUser", null)
+                    b.HasOne("MH.PLCM.Core.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -409,7 +442,7 @@ namespace MH.PLCM.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MH.PLCM.Models.ApplicationUser", null)
+                    b.HasOne("MH.PLCM.Core.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -418,7 +451,7 @@ namespace MH.PLCM.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("MH.PLCM.Models.ApplicationUser", null)
+                    b.HasOne("MH.PLCM.Core.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

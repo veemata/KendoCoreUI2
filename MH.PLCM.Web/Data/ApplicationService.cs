@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MHMenu = MH.PLCM.Core.Entities.Menu;
-using MHMenuItem = MH.PLCM.Core.Entities.MenuItem;
+using MHMenuItem = MH.PLCM.Core.Entities.AppMenuItem;
 
 namespace MH.PLCM.Data
 {
@@ -23,12 +23,12 @@ namespace MH.PLCM.Data
         public IEnumerable<TreeViewItemModel> GetPermissionsTree()
         {
             var result = new List<TreeViewItemModel>();
-            var root = (from p in _db.Permissions
-                        where (p.PermissionParentId == 0)
+            var root = (from p in _db.AppPermissions
+                        where (p.ParentId == p.PermissionId)
                         select new TreeViewItemModel
                         {
                             Id = p.PermissionId.ToString(),
-                            Text = p.PermissionName,
+                            Text = p.Name,
                             Expanded = true,
                             Checked = true
 
@@ -46,12 +46,12 @@ namespace MH.PLCM.Data
 
         public void AddChildren(TreeViewItemModel parent)
         {
-            var children = (from pc in _db.Permissions
-                            where (pc.PermissionParentId == Convert.ToInt32(parent.Id))
+            var children = (from pc in _db.AppPermissions
+                            where (pc.ParentId == Convert.ToInt32(parent.Id))
                             select new TreeViewItemModel
                             {
                                 Id = pc.PermissionId.ToString(),
-                                Text = pc.PermissionName,
+                                Text = pc.Name,
                                 Expanded = true
 
                             }).ToList();
@@ -70,7 +70,7 @@ namespace MH.PLCM.Data
         public MHMenu GetMenuData()
         {
             MHMenu m = new Core.Entities.Menu { MenuId = 1, MenuName = "Root" };
-            var allItems = _db.Menus.ToList();
+            var allItems = _db.AppMenuItems.ToList();
             m.MenuItems = allItems.Where(mi => mi.ParentMenuItemId == 1).ToList();
             foreach (MHMenuItem mi in m.MenuItems)
             {

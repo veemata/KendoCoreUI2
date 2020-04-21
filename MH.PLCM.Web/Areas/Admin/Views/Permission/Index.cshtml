@@ -5,14 +5,14 @@
 
 <h1>@ViewData["Title"]</h1>
 
-@(Html.Kendo().Grid<Permission>()
+@(Html.Kendo().Grid<AppPermission>()
                 .Name("user")
                 .Columns(columns =>
                 {
                     columns.Bound(r => r.PermissionId);
-                    columns.Bound(r => r.PermissionName);
-                    columns.Bound(r => r.PermissionParentId);
-                    columns.Bound(r => r.PermissionCode);
+                    columns.Bound(r => r.Name);
+                    columns.Bound(r => r.ParentId);
+                    columns.Bound(r => r.Code);
                     columns.Bound(r => r.Remarks);
                     columns.Command(command => { command.Edit(); }).Width(300);
                 })

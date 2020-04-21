@@ -29,7 +29,7 @@ namespace MH.PLCM.Controllers
 
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
-            return Json(_db.Permissions.AsNoTracking().ToDataSourceResult(request));
+            return Json(_db.AppPermissions.AsNoTracking().ToDataSourceResult(request));
         }
 
 
@@ -58,18 +58,18 @@ namespace MH.PLCM.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View(new Permission());
+            return View(new AppPermission());
         }
 
         [HttpPost]
-        public ActionResult Create([DataSourceRequest] DataSourceRequest request, Permission per)
+        public ActionResult Create([DataSourceRequest] DataSourceRequest request, AppPermission per)
         {
-            Permission storePerm = null;
+            AppPermission storePerm = null;
             if (per != null && ModelState.IsValid)
             {
-                _db.Permissions.Add(per);
+                _db.AppPermissions.Add(per);
                 _db.SaveChanges();
-                storePerm = _db.Permissions.Where(p => p.PermissionName == per.PermissionName).FirstOrDefault();
+                storePerm = _db.AppPermissions.Where(p => p.Name == per.Name).FirstOrDefault();
             }
             else
             {
@@ -79,14 +79,14 @@ namespace MH.PLCM.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update([DataSourceRequest] DataSourceRequest request, Permission per)
+        public ActionResult Update([DataSourceRequest] DataSourceRequest request, AppPermission per)
         {
-            Permission storePerm = _db.Permissions.Where(p => p.PermissionId == per.PermissionId).FirstOrDefault();
+            AppPermission storePerm = _db.AppPermissions.Where(p => p.PermissionId == per.PermissionId).FirstOrDefault();
             if (storePerm != null && ModelState.IsValid)
             {
                 // Map from object returned to object attached to context
-                _mapper.Map<Permission, Permission>(per, storePerm);
-                _db.Permissions.Update(storePerm);
+                _mapper.Map<AppPermission, AppPermission>(per, storePerm);
+                _db.AppPermissions.Update(storePerm);
                 _db.SaveChanges();
             }
             else

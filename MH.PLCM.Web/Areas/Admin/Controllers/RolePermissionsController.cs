@@ -18,7 +18,7 @@ namespace MH.PLCM.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var role = await _db.ApplicationRoles.Include(ar => ar.RolePermissions).ThenInclude(p => p.Permission).AsNoTracking().FirstOrDefaultAsync();
+            var role = await _db.AppRoles.Include(ar => ar.AppRolePermissions).ThenInclude(p => p.Permission).AsNoTracking().FirstOrDefaultAsync();
             return View(role);
         }
 

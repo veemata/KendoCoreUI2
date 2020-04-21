@@ -34,15 +34,15 @@ namespace MH.PLCM.Controllers
 
         private List<ApplicationUserRoleViewModel> GetUserRoles(string UserId)
         {
-            var roles = _db.UserApplicationRoles
-                 .Where(ar => ar.UserId == UserId)
+            var roles = _db.AppUserRoles
+                 .Where(ar => ar.Id == UserId)
                  .Select(r => new ApplicationUserRoleViewModel
                  {
-                     ApplicationRoleId = r.ApplicationRoleId,
+                     ApplicationRoleId = r.AppRoleId,
                      ApplicationRoleViewModel = new ApplicationRoleViewModel
                      {
-                         ApplicationRoleId = r.ApplicationRoleId,
-                         ApplicationRoleName = r.ApplicationRole.ApplicationRoleName
+                         ApplicationRoleId = r.AppRoleId,
+                         ApplicationRoleName = r.AppRole.Name
                      }
                  }).ToList();
             return (roles);
@@ -50,11 +50,11 @@ namespace MH.PLCM.Controllers
 
         public JsonResult GetRolesList()
         {
-            var roles = _db.ApplicationRoles
+            var roles = _db.AppRoles
                         .Select(ro => new ApplicationRoleViewModel
                         {
-                            ApplicationRoleId = ro.ApplicationRoleId,
-                            ApplicationRoleName = ro.ApplicationRoleName
+                            ApplicationRoleId = ro.AppRoleId,
+                            ApplicationRoleName = ro.Name
                         }
                         ).ToList();
 
@@ -63,11 +63,11 @@ namespace MH.PLCM.Controllers
 
         private void PopulateRolesDrowpdown()
         {
-            var roles = _db.ApplicationRoles
+            var roles = _db.AppRoles
                          .Select(ro => new ApplicationRoleViewModel
                          {
-                             ApplicationRoleId = ro.ApplicationRoleId,
-                             ApplicationRoleName = ro.ApplicationRoleName
+                             ApplicationRoleId = ro.AppRoleId,
+                             ApplicationRoleName = ro.Name
                          }
                          ).ToList();
             ViewData["applicationRoles"] = roles;
