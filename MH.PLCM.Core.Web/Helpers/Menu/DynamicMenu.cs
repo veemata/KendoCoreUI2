@@ -22,31 +22,31 @@ namespace MH.PLCM
         }
 
 
-        public static void RenderMenuItems(ICollection<MenuItem> items, StringBuilder sb)
+        private static void RenderMenuItems(ICollection<MenuItem> items, StringBuilder sb)
         {
             foreach (MenuItem itm in items)
             {
-                if (string.IsNullOrEmpty(itm.LinkUrl))
+                if (itm.LinkUrl.Equals("#") || string.IsNullOrEmpty(itm.LinkUrl))
                 {
-                    sb.AppendLine(BeginDropdownMenu(itm));
+                    RenderDropdownBegin(itm, sb);
                 }
                 else
                 {
-                    sb.AppendLine(RenderMenuItem(itm));
+                    RenderMenuItem(itm, sb);
                 }
                 if (itm.Children != null)
                 {
                     RenderMenuItems(itm.Children, sb);
-                    if (string.IsNullOrEmpty(itm.LinkUrl))
+                    if (itm.LinkUrl.Equals("#") || string.IsNullOrEmpty(itm.LinkUrl))
                     {
-                        sb.AppendLine(EndDropdownMenu().ToString());
+                        EndDropdownMenu(sb);
                     }
                 }
             }
         }
 
         //Assumes already child element html is appeded
-        public static void RenderFullMenuWithChildItems(StringBuilder sb)
+        private static void RenderFullMenuWithChildItems(StringBuilder sb)
         {
             string subMenus = sb.ToString();
             sb.Clear();
@@ -61,19 +61,19 @@ namespace MH.PLCM
 
         }
 
-        public static string BeginDropdownMenu(MenuItem item)
+        private static void RenderDropdownBegin(MenuItem item, StringBuilder sb)
         {
-            return (string.Format(@" 
+            sb.AppendLine((string.Format(@" 
                                 <li class='nav-item nav-dropdown'>
                                         <a class='nav-link nav-dropdown-toggle' href='#'>
                                             <i class='{0}'></i> {1}
                                         </a>
-                                 <ul class='nav-dropdown-items'>", item.CssClassForIcon, item.MenuText));
+                                 <ul class='nav-dropdown-items'>", item.CssClassForIcon, item.MenuText)));
         }
 
-        public static string RenderMenuItem(MenuItem item)
+        private static void RenderMenuItem(MenuItem item, StringBuilder sb)
         {
-            return (string.Format(@"<li class='nav-item'>
+            sb.AppendLine(string.Format(@"<li class='nav-item'>
                                        <a class='nav-link' href='{0}'>
                                         <i class='{1}'></i>{2}
                                        </a>
@@ -82,12 +82,12 @@ namespace MH.PLCM
                                     item.CssClassForIcon,
                                     item.MenuText));
         }
-        public static HtmlString EndDropdownMenu()
+        private static void EndDropdownMenu(StringBuilder sb)
         {
-            return (new HtmlString("</ul></li>"));
+            sb.AppendLine("</ul></li>");
         }
 
-        public static void RenderBottomCollapseMenu(StringBuilder sb)
+        private static void RenderBottomCollapseMenu(StringBuilder sb)
         {
             sb.AppendLine("<button class=\"sidebar-minimizer brand-minimizer\" type=\"button\"></button>");
         }

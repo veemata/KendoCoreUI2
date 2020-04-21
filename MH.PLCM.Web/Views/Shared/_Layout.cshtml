@@ -87,13 +87,14 @@
 
     <div class="app-body">
         <div class="sidebar">
-            @*
-                   @inject MH.PLCM.Data.ApplicationService srv
-                   @Html.Raw(MH.PLCM.DynamicMenu.RenderMenu(srv.GetMenuData()))
-            *@
+            @**@
+            @inject MH.PLCM.Data.ApplicationService srv
+            @Html.Raw(MH.PLCM.DynamicMenu.RenderMenu(srv.GetMenuData()))
+
+            <!--
             <partial name="_sidebar-nav" />
             <button class="sidebar-minimizer brand-minimizer" type="button"></button>
-
+                -->
         </div>
         <main class="main">
 
