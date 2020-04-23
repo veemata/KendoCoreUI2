@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Dynamic
+namespace MH.PLCM.Core.Dynamic
 {
     public static class GetDynamicHtml
     {

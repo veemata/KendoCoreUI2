@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace MH.PLCM.Models.Dtos
+namespace MH.PLCM.Areas.Admin.ViewModels
 {
-    public class UserInRolesDto
+    public class UserInRolesViewModel
     {
         public ApplicationUser User { get; set; }
         public List<ApplicationUserRoleViewModel> Roles { get; set; }

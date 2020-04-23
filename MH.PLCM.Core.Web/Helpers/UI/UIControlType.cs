@@ -1,4 +1,4 @@
-﻿namespace Dynamic
+﻿namespace MH.PLCM.Core.Dynamic
 {
     public enum UIControlType
     {

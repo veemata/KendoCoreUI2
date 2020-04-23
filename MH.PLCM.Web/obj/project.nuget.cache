@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "kEk+JrsfNOPy7SkRuaLM9lgirGfeO1yNOZFvM3fIE40eSLm3mSljJwtUgC9gwsJcXR4Sf+mpZ5KK4SIdDa8yKQ==",
+  "dgSpecHash": "qDFV6YSqJb9mzqVSbUoUHbjlBwnM+CM4XNTU6BOlPEnQMJmaT9zufTHflyT6pC04oFl55PVTnhOTZCG2AkQrsw==",
   "success": true,
   "projectFilePath": "C:\\Users\\3051752\\source\\repos\\KendoCoreUI2\\MH.PLCM.Web\\MH.PLCM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\3051752\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\3051752\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\3051752\\.nuget\\packages\\fluentvalidation\\8.6.2\\fluentvalidation.8.6.2.nupkg.sha512",
+    "C:\\Users\\3051752\\.nuget\\packages\\fluentvalidation.aspnetcore\\8.6.2\\fluentvalidation.aspnetcore.8.6.2.nupkg.sha512",
+    "C:\\Users\\3051752\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\8.6.2\\fluentvalidation.dependencyinjectionextensions.8.6.2.nupkg.sha512",
     "C:\\Users\\3051752\\.nuget\\packages\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",
     "C:\\Users\\3051752\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\3051752\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

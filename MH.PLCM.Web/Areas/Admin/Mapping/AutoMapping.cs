@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MH.PLCM.Core.Entities;
 
-namespace MH.PLCM.Models.Dtos
+namespace MH.PLCM.Areas.Admin.Mapping
 {
 
     public class AutoMapping : Profile

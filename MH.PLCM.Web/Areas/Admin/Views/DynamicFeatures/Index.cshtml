@@ -1,0 +1,89 @@
+﻿@model IEnumerable<MH.PLCM.Core.Entities.DynamicFeature>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LookupId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReportGroupId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DefaultValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitOfMeasure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsBaanFeature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResponsibleGroupId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LookupId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReportGroupId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DefaultValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitOfMeasure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsBaanFeature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResponsibleGroupId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RowId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RowId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RowId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

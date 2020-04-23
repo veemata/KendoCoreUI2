@@ -1,0 +1,119 @@
+{
+  "Id": 1,
+  "Rows": [
+    {
+      "Id": 1,
+      "ItemId": 1,
+      "ColumnType": {
+        "Id": 1,
+        "Name": "Age",
+        "DisplayLabel": "Age",
+        "ValidationProperties": [
+          {
+            "Type": 0,
+            "ErrorMessage": "Age is required",
+            "RangeMinimumValue": 0.0,
+            "RangeMaximumValue": 0.0,
+            "StringLengthMax": 0,
+            "StringLengthMin": 0,
+            "Pattern": null
+          },
+          {
+            "Type": 2,
+            "ErrorMessage": "Age should be between 1 - 120",
+            "RangeMinimumValue": 0.0,
+            "RangeMaximumValue": 120.0,
+            "StringLengthMax": 0,
+            "StringLengthMin": 0,
+            "Pattern": null
+          }
+        ],
+        "LookUpId": 0,
+        "ReportGroupId": 0,
+        "GroupOrder": 0,
+        "DefaultValue": null,
+        "UnitOfMessure": null,
+        "ResponsibleGroupId": 0,
+        "Active": true
+      },
+      "ColumnValue": "5",
+      "Sequence": 1
+    },
+    {
+      "Id": 2,
+      "ItemId": 1,
+      "ColumnType": {
+        "Id": 2,
+        "Name": "Address",
+        "DisplayLabel": "Enter Address:",
+        "ValidationProperties": [
+          {
+            "Type": 0,
+            "ErrorMessage": "Address is required",
+            "RangeMinimumValue": 0.0,
+            "RangeMaximumValue": 0.0,
+            "StringLengthMax": 0,
+            "StringLengthMin": 0,
+            "Pattern": null
+          },
+          {
+            "Type": 1,
+            "ErrorMessage": "Address need to between 3 and 10 Chars",
+            "RangeMinimumValue": 0.0,
+            "RangeMaximumValue": 0.0,
+            "StringLengthMax": 10,
+            "StringLengthMin": 3,
+            "Pattern": null
+          }
+        ],
+        "LookUpId": 0,
+        "ReportGroupId": 0,
+        "GroupOrder": 0,
+        "DefaultValue": null,
+        "UnitOfMessure": null,
+        "ResponsibleGroupId": 0,
+        "Active": true
+      },
+      "ColumnValue": "",
+      "Sequence": 3
+    },
+    {
+      "Id": 3,
+      "ItemId": 1,
+      "ColumnType": {
+        "Id": 3,
+        "Name": "Phone",
+        "DisplayLabel": "Enter Phone Number",
+        "ValidationProperties": [
+          {
+            "Type": 0,
+            "ErrorMessage": "Phone Number is required",
+            "RangeMinimumValue": 0.0,
+            "RangeMaximumValue": 0.0,
+            "StringLengthMax": 0,
+            "StringLengthMin": 0,
+            "Pattern": null
+          },
+          {
+            "Type": 5,
+            "ErrorMessage": "Phone Number is invalid",
+            "RangeMinimumValue": 0.0,
+            "RangeMaximumValue": 0.0,
+            "StringLengthMax": 0,
+            "StringLengthMin": 0,
+            "Pattern": "^([0-9]{10})$"
+          }
+        ],
+        "LookUpId": 0,
+        "ReportGroupId": 0,
+        "GroupOrder": 0,
+        "DefaultValue": null,
+        "UnitOfMessure": null,
+        "ResponsibleGroupId": 0,
+        "Active": true
+      },
+      "ColumnValue": "1234567896",
+      "Sequence": 2
+    }
+  ]
+}

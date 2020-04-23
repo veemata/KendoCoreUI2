@@ -2,15 +2,15 @@
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Dynamic
+
+namespace MH.PLCM.Core.Dynamic
 {
-    public static class UIHelper
+    public static class DynamicForm
     {
-        public static string RenderDynamicForm(bool isPostBack = false, IFormCollection form = null)
+        public static string Render(bool isPostBack = false, IFormCollection form = null)
         {
 
             StringBuilder sb = new StringBuilder();
@@ -38,7 +38,7 @@ namespace Dynamic
         public static MhEntityDynamicProperties GetEntityDynamicProperties()
         {
             var mhItemAttributes = JsonConvert.DeserializeObject<MhEntityDynamicProperties>
-                    (File.ReadAllText(@"C:\Users\3051752\source\PrakGitRepo\DynamicUI\assets\ItemProps.json"));
+                    (FileContentFromAssembly.Read("ItemProps.json"));
             return (mhItemAttributes);
 
         }
@@ -48,8 +48,7 @@ namespace Dynamic
         {
 
             var list = JsonConvert.DeserializeObject<List<MhDynamicColumn>>
-                (File.ReadAllText(@"C:\Users\3051752\source\PrakGitRepo\DynamicUI\assets\fields.json"));
-
+                (FileContentFromAssembly.Read("fields.json"));
             return (list);
         }
 
@@ -63,6 +62,4 @@ namespace Dynamic
 
 
     }
-
-
 }

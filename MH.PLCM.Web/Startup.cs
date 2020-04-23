@@ -1,11 +1,12 @@
 using AutoMapper;
+using FluentValidation.AspNetCore;
+using MH.PLCM.Areas.Admin.Validators;
 using MH.PLCM.Core.Entities;
 using MH.PLCM.Data;
 using MH.PLCM.Service;
 using MH.PLCM.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -41,7 +42,8 @@ namespace MH.PLCM
 
             services.AddAutoMapper(typeof(Startup)); // AutoMapper
             services.AddControllersWithViews(/* options=> options.Filters.Add(typeof(DynamicAuthorizationFilter))*/) //Dynamic filtering
-                .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+                .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null)
+                .AddFluentValidation(cf=>cf.RegisterValidatorsFromAssemblyContaining<DynamicFeatureViewModelValidator>()); // Add fluent validations
             services.AddRazorPages();
             services.AddKendo();
         }

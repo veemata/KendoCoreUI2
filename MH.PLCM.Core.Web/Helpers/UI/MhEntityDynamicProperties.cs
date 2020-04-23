@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Dynamic
+namespace MH.PLCM.Core.Dynamic
 {
     public class MhEntityDynamicProperties
     {

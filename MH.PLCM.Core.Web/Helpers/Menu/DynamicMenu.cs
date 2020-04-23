@@ -1,9 +1,5 @@
-﻿using Dynamic;
-using MH.PLCM.Core.Entities;
-using Microsoft.AspNetCore.Html;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using MH.PLCM.Core.Entities;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace MH.PLCM

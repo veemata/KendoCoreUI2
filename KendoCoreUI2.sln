@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MH.PLCM.Northwind.Web", "MH
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MH.PLCM.Core", "MH.PLCM.Core\MH.PLCM.Core.csproj", "{7AD24FE2-63B0-47CF-86EB-E83F1A190C18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MH.PLCM.Core.Web", "MH.PLCM.Core.Web\MH.PLCM.Core.Web.csproj", "{86563CEA-7CD3-425E-92C7-E7DB2F14E4B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MH.PLCM.Core.Web", "MH.PLCM.Core.Web\MH.PLCM.Core.Web.csproj", "{86563CEA-7CD3-425E-92C7-E7DB2F14E4B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

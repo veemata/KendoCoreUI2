@@ -224,6 +224,200 @@ namespace MH.PLCM.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("MH.PLCM.Core.Entities.DynamicFeature", b =>
+                {
+                    b.Property<int>("RowId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("RowID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool?>("Active")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("((1))");
+
+                    b.Property<int>("DataTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("DataTypeID")
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((1))");
+
+                    b.Property<string>("DefaultValue")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(50)")
+                        .HasDefaultValueSql("('')")
+                        .HasMaxLength(50)
+                        .IsUnicode(false);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
+                    b.Property<int>("GroupOrder")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsBaanFeature")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("LookupId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("LookupID")
+                        .HasColumnType("int")
+                        .HasDefaultValueSql("((0))");
+
+                    b.Property<int>("ReportGroupId")
+                        .HasColumnName("ReportGroupID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ResponsibleGroupId")
+                        .HasColumnName("ResponsibleGroupID")
+                        .HasColumnType("int")
+                        .HasComment("Lookup 1041");
+
+                    b.Property<string>("UnitOfMeasure")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(50)")
+                        .HasDefaultValueSql("('')")
+                        .HasMaxLength(50)
+                        .IsUnicode(false);
+
+                    b.HasKey("RowId");
+
+                    b.ToTable("DynamicFeatures");
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.DynamicItem", b =>
+                {
+                    b.Property<int>("RowId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("RowID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("EntityKeyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EntityTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RowId")
+                        .HasName("PK_DynamicItem");
+
+                    b.ToTable("DynamicItems");
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.DynamicItemFeature", b =>
+                {
+                    b.Property<int>("RowId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("RowID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Comments")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(100)")
+                        .HasDefaultValueSql("('')")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
+                    b.Property<int>("FeatureRowId")
+                        .HasColumnName("FeatureRowID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FeatureValue")
+                        .IsRequired()
+                        .HasColumnType("varchar(1000)")
+                        .HasMaxLength(1000)
+                        .IsUnicode(false);
+
+                    b.Property<int>("ItemRowId")
+                        .HasColumnName("ItemRowID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Sequence")
+                        .HasColumnType("int");
+
+                    b.HasKey("RowId")
+                        .HasName("PK_DynamicPackaging");
+
+                    b.HasIndex("FeatureRowId");
+
+                    b.HasIndex("ItemRowId", "FeatureRowId")
+                        .IsUnique()
+                        .HasName("IX_DynamicItemFeatures");
+
+                    b.ToTable("DynamicItemFeatures");
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.DynamicTemplate", b =>
+                {
+                    b.Property<int>("RowId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("RowID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool?>("Active")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValueSql("((1))");
+
+                    b.Property<string>("TemplateName")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50)
+                        .IsUnicode(false);
+
+                    b.HasKey("RowId")
+                        .HasName("PK_Templates");
+
+                    b.HasIndex("TemplateName")
+                        .IsUnique()
+                        .HasName("IX_DynamicTemplates");
+
+                    b.ToTable("DynamicTemplates");
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.DynamicTemplateFeature", b =>
+                {
+                    b.Property<int>("RowId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("RowID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("FeatureRowId")
+                        .HasColumnName("FeatureRowID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FeatureValue")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(1000)")
+                        .HasDefaultValueSql("('')")
+                        .HasMaxLength(1000)
+                        .IsUnicode(false);
+
+                    b.Property<int>("TemplateRowId")
+                        .HasColumnName("TemplateRowID")
+                        .HasColumnType("int");
+
+                    b.HasKey("RowId");
+
+                    b.HasIndex("TemplateRowId", "FeatureRowId")
+                        .IsUnique()
+                        .HasName("IX_DynamicTemplateFeatures");
+
+                    b.ToTable("DynamicTemplateFeatures");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -402,6 +596,30 @@ namespace MH.PLCM.Migrations
                         .WithMany("AppUserRoles")
                         .HasForeignKey("Id")
                         .HasConstraintName("FK_AppUserRole_AspNetUsers")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.DynamicItemFeature", b =>
+                {
+                    b.HasOne("MH.PLCM.Core.Entities.DynamicFeature", "FeatureRow")
+                        .WithMany("DynamicItemFeatures")
+                        .HasForeignKey("FeatureRowId")
+                        .HasConstraintName("FK_DynamicPackaging_DynamicFeatures")
+                        .IsRequired();
+
+                    b.HasOne("MH.PLCM.Core.Entities.DynamicItem", "ItemRow")
+                        .WithMany("DynamicItemFeatures")
+                        .HasForeignKey("ItemRowId")
+                        .HasConstraintName("FK_DynamicPackaging_DynamicItem")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MH.PLCM.Core.Entities.DynamicTemplateFeature", b =>
+                {
+                    b.HasOne("MH.PLCM.Core.Entities.DynamicTemplate", "TemplateRow")
+                        .WithMany("DynamicTemplateFeatures")
+                        .HasForeignKey("TemplateRowId")
+                        .HasConstraintName("FK_DynamicTemplateFeatures_DynamicTemplates")
                         .IsRequired();
                 });
 

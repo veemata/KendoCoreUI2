@@ -12,6 +12,7 @@
   <ItemGroup>
     <Folder Include="Areas\Northwind\Models\" />
     <EmbeddedResource Include="wwwroot\js\gridEdit.js" />
+    <Folder Include="Areas\Northwind\ViewModels\" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
 

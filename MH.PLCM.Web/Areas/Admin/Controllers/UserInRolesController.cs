@@ -1,7 +1,7 @@
 ﻿using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using MH.PLCM.Areas.Admin.ViewModels;
 using MH.PLCM.Data;
-using MH.PLCM.Models.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +26,7 @@ namespace MH.PLCM.Controllers
 
         public JsonResult Read([DataSourceRequest] DataSourceRequest request)
         {
-            UserInRolesDto uir = new UserInRolesDto();
+            UserInRolesViewModel uir = new UserInRolesViewModel();
             uir.User = _db.Users.FirstOrDefault();
             uir.Roles = GetUserRoles(uir.User.Id);
             return Json(uir.Roles.ToDataSourceResult(request));

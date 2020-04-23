@@ -1,0 +1,458 @@
+﻿@using Kendo.Mvc.UI
+@model MH.GKat.Website.Web.ViewModels.Master.BrandViewModel
+@using Abp.Localization
+
+<div class="alert alert-success hide" role="alert" id="divSuccess">
+    <button type="button" class="close" onclick="hideAlert('divSuccess');" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+   <div id="idBrandSuccessMsg">
+
+   </div>
+</div>
+<div id="divFailureValSummary" class="alert alert-danger hide" role="alert">
+    <button type="button" class="close" onclick="hideAlert('divFailureValSummary');" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div id="idBrandFailureSummaryMsg">
+       @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div id="divFailure" class="alert alert-danger hide" role="alert">
+    <button type="button" class="close" onclick="hideAlert('divFailure');" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div id="idFailureMsg">
+
+    </div>
+</div>
+<div class="normal-search margin-bottom-10 clearfix">
+    <div class="margin-bottom-10">
+        
+        <div class="col-md-4">
+            @Html.HiddenFor(model => model.BrandID)
+            <div class="form-group required">
+                <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "Abbreviation")</div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(model => model.Abbreviation, new { @class = "form-control", TabIndex = 101 })
+                    @Html.ValidationMessageFor(model => model.Abbreviation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group required">
+                <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "Description")</div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(model => model.Description, new { @class = "form-control", TabIndex = 102 })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "MasterBrandID")</div>
+                <div class="col-md-7">
+                    @(Html.Kendo().ComboBoxFor(model => model.MasterBrandID)
+                          .Name("MasterBrandID")
+                          .HtmlAttributes(new { style = "width:100%;", TabIndex = 104 })
+                          .Placeholder("Select...")
+                          .DataTextField("Name")
+                          .DataValueField("Id")
+                          .Filter(FilterType.StartsWith)
+                          .DataSource(source =>
+                          {
+                              source.Read(read =>
+                              {
+                                  read.Action("Filldropdown", "Master", new { ddName = "MasterBrand" });
+                              });
+                          })
+                          .Events(e => e.Change("kendoDropDownChangeRestrictValues"))
+                          .Enable(true)
+                          .IgnoreCase(true)
+                          .Suggest(true)
+                          .AutoBind(true)
+                    )
+                    @Html.ValidationMessageFor(model => model.MasterBrandID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "BrandTypeID")</div>
+                <div class="col-md-7">
+                    @(Html.Kendo().ComboBoxFor(model => model.BrandTypeID)
+                          .Name("BrandTypeID")
+                          .HtmlAttributes(new { style = "width:100%;", TabIndex = 107 })
+                          .Placeholder("Select...")
+                          .DataTextField("Name")
+                          .DataValueField("Id")
+                          .Filter(FilterType.StartsWith)
+                          .DataSource(source =>
+                          {
+                              source.Read(read =>
+                              {
+                                  read.Action("Filldropdown", "Master", new { ddName = "BrandType" });
+                              });
+                          })
+                          .Events(e => e.Change("kendoDropDownChangeRestrictValues"))
+                        .Enable(true)
+                        .IgnoreCase(true)
+                        .Suggest(true)
+                        .AutoBind(true)
+
+                    )
+                    @Html.ValidationMessageFor(model => model.BrandTypeID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "NAPACode")</div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(model => model.NAPACode, new { @class = "form-control", TabIndex = 110 })
+                    @Html.ValidationMessageFor(model => model.NAPACode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "AAIAID")</div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(model => model.AAIAID, new { @class = "form-control",  TabIndex = 113 })
+
+                    @Html.ValidationMessageFor(model => model.AAIAID, "", new { @class = "text-danger" })
+                </div>
+            </div>            
+
+        </div>
+        <div class="col-md-4">           
+            <div class="form-group required">
+                <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "BrandDutyID")</div>
+                <div class="col-md-7">
+                    @(Html.Kendo().ComboBoxFor(model => model.BrandDutyID)
+                          .Name("BrandDutyID")
+                          .HtmlAttributes(new { style = "width:100%;", TabIndex = 105 })
+                          .Placeholder("Select...")
+                          .DataTextField("Name")
+                          .DataValueField("Id")
+                          .Filter(FilterType.StartsWith)
+                          .DataSource(source =>
+                          {
+                              source.Read(read =>
+                              {
+                                  read.Action("Filldropdown", "Master", new { ddName = "BrandDuty" });
+                              });
+                          })
+                          .Events(e => e.Change("kendoDropDownChangeRestrictValues"))
+                          .Enable(true)
+                          .IgnoreCase(true)
+                          .Suggest(true)
+                          .AutoBind(true)
+                    )
+                    @Html.ValidationMessageFor(model => model.BrandDutyID, "", new { @class = "text-danger" })
+                </div>
+            </div>   
+            <div class="form-group">
+                <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "BrandQuality")</div>
+                <div class="col-md-7">
+                    @(Html.Kendo().ComboBoxFor(model => model.BrandQualityID)
+                          .Name("BrandQualityID")
+                          .HtmlAttributes(new { style = "width:100%;", TabIndex = 108 })
+                          .Placeholder("Select...")
+                          .DataTextField("Name")
+                          .DataValueField("Id")
+                          .Filter(FilterType.StartsWith)
+                          .DataSource(source =>
+                          {
+                              source.Read(read =>
+                              {
+                                  read.Action("Filldropdown", "Master", new { ddName = "BrandQuality" });
+                              });
+                          })
+                          .Events(e => e.Change("kendoDropDownChangeRestrictValues"))
+                          .Enable(true)
+                          .IgnoreCase(true)
+                          .Suggest(true)
+                          .AutoBind(true)
+
+
+                    )
+                    @Html.ValidationMessageFor(model => model.BrandQualityID, "", new { @class = "text-danger" })
+                </div>
+            </div>        
+            <div class="form-group">
+                <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "ParentCode")</div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(model => model.ParentCode, new { @class = "form-control", TabIndex = 111 })
+                    @Html.ValidationMessageFor(model => model.ParentCode, "", new { @class = "text-danger" })
+                </div>
+            </div>           
+            <div class="form-group">
+              <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "BrandOwnerCode")</div>
+              <div class="col-md-7">
+                  @Html.TextBoxFor(model => model.BrandOwnerCode, new { @class = "form-control", TabIndex = 114 })
+                  @Html.ValidationMessageFor(model => model.BrandOwnerCode, "", new { @class = "text-danger" })
+              </div>
+          </div> 
+            <div class="form-group">
+                <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "SubBrandAAIDID")</div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(model => model.SubBrandAAIDID, new { @class = "form-control", TabIndex = 114 })
+                    @Html.ValidationMessageFor(model => model.SubBrandAAIDID, "", new { @class = "text-danger" })
+                </div>
+            </div> 
+            <div class="form-group">
+                <div class="col-md-5 control-label">@LocalizationHelper.GetString("Master", "SubBrandDescription")</div>
+                <div class="col-md-7">
+                    @Html.TextBoxFor(model => model.SubBrandDescription, new { @class = "form-control", TabIndex = 114 })
+
+                    @Html.ValidationMessageFor(model => model.SubBrandDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>              
+        </div>
+        <div class="col-md-4">           
+            <div class="form-group">
+                <div class="col-md-4 control-label"></div>
+                <div class="col-md-8">
+                    <div class="md-checkbox">
+                        @Html.CheckBoxFor(model => model.InCatalog, new { @class = "md-check", id = "InCatalog", TabIndex = 103 })
+                        @Html.ValidationMessageFor(model => model.InCatalog, "", new { @class = "text-danger" })
+                        <label for="InCatalog">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span> @LocalizationHelper.GetString("Master", "InCatalog")
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 control-label"></div>
+                <div class="col-md-8">
+                    <div class="md-checkbox">
+                        @Html.CheckBoxFor(model => model.InPrivate, new { @class = "md-check", id = "InPrivate", TabIndex = 106 })
+                        @Html.ValidationMessageFor(model => model.InPrivate, "", new { @class = "text-danger" })
+                        <label for="InPrivate">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span> @LocalizationHelper.GetString("Master", "InPrivate")
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 control-label"></div>
+                <div class="col-md-8">
+                    <div class="md-checkbox">
+                        @Html.CheckBoxFor(model => model.Premium, new { @class = "md-check", id = "Premium", TabIndex = 109 })
+                        @Html.ValidationMessageFor(model => model.Premium, "", new { @class = "text-danger" })
+                        <label for="Premium">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span> @LocalizationHelper.GetString("Master", "Premium")
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 control-label"></div>
+                <div class="col-md-8">
+                    <div class="md-checkbox">
+                        @Html.CheckBoxFor(model => model.OPP, new { @class = "md-check", id = "OPP", TabIndex = 112 })
+                        @Html.ValidationMessageFor(model => model.OPP, "", new { @class = "text-danger" })
+                        <label for="OPP">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span> @LocalizationHelper.GetString("Master", "OPP")
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 control-label"></div>
+                <div class="col-md-8">
+                    <div class="md-checkbox">
+                        @Html.CheckBoxFor(model => model.Active, new { @class = "md-check", id = "Active", TabIndex = 113 })
+                        @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                        <label for="Active">
+                            <span class="inc"></span>
+                            <span class="check"></span>
+                            <span class="box"></span> @LocalizationHelper.GetString("Master", "Active")
+                        </label>
+                    </div>
+                </div>
+            </div>           
+        </div>      
+    </div>
+    <div class="page-btn">
+        <div class="form-group">
+            <input class="btn green" id="btnSubmit" type="submit" value=@LocalizationHelper.GetString("Master", "Save") />
+            @*@Ajax.ActionLink(LocalizationHelper.GetString("Master", "Cancel"), "_BrandMasterDetail", "Master", new AjaxOptions { UpdateTargetId = "frmBrandMasterDetail" }, new { id = "idCancelBrand", @class = "btn dark btn-outline" })*@
+            <button type="button" class="btn dark btn-outline" id="btnCancel" data-dismiss="modal">@LocalizationHelper.GetString("Parts", "Close")</button>
+            @Ajax.ActionLink(LocalizationHelper.GetString("Master", "AddBrandMaster"), "_BrandMasterDetail", "Master", new AjaxOptions { UpdateTargetId = "frmBrandMasterDetail" }, new { id = "idCreateNewBrand", @class = "btn green btn-outline sbold pull-right" })
+        </div>
+    </div>
+    @Html.HiddenFor(model=> model.parentControlId, new { id= "parentControlId" })
+    @Html.HiddenFor(model => model.parentControlVal, new { id = "parentControlVal" })
+    @Html.HiddenFor(model => model.reqCallBackFunction, new { id = "reqCallBackFunction" })
+    @Html.HiddenFor(model => model.ScreenType, new { id = "ScreenType" })
+
+</div>
+
+<script type="text/javascript">
+    var parentControlId = "@Model.parentControlId";
+    var reqCallBackFunction = "@Model.reqCallBackFunction";
+    var parentControlVal = "@Model.parentControlVal";
+    if ('@Model.ScreenType' == 'Main')
+    {
+        $('#btnCancel').hide();
+    }
+
+    $('#idCreateNewBrand').click(function (e) {
+        e.preventDefault();
+        $('#gridBrandMaster').data('kendoGrid').refresh();
+        //$("#Active")[0].checked = true;
+    });
+
+    $('#btnSubmit').click(function (e) {
+
+        e.preventDefault();
+        var grid = jQuery('#gridBrandMaster').data('kendoGrid')
+        var brandID = 0;
+        var currentItem = null;
+        var brandVal = $("#BrandID").val();
+        if (brandVal != 0 && brandVal != "" && brandVal != null) {
+            brandID = brandVal;
+        }
+        if (brandID > 0) {
+
+            $.ajax({
+                url: '@Url.Action("UpdateBrandMaster", "Master")',
+                type: 'POST',
+                data: $('#frmBrandMasterDetail').serialize(),
+                success: function (result) {
+                    if (result.success) {
+                        var brandInsUpdMsg = '@LocalizationHelper.GetString("Master", "BrandMasterDataUpdatedSuccessfully")';
+                        refreshPartCache('BRAND', parentControlId, reqCallBackFunction); //Refresh the Brand cache and reload the parent control
+                        showAlert("success", brandInsUpdMsg, "idBrandSuccessMsg");
+                        $('#gridBrandMaster').data('kendoGrid').dataSource.read();
+                        $('#gridBrandMaster').data('kendoGrid').refresh();
+                        clear_form_elements($('#frmBrandMasterDetail'));
+                        $("#BrandID").val(0);
+                    }
+                    else {
+                        if (($("#Active")[0].checked==false) && (result.success==false))
+                        {
+                            var brandInsUpdMsg = '@LocalizationHelper.GetString("Master", "Brandisassociatedwithsomepartsinapplication.Itcannotbeinactive")';
+                            showAlert("failure", brandInsUpdMsg, "idFailureMsg");
+                        }
+                        if (typeof result == 'string') {
+                            $('#frmBrandMasterDetail').html(result);
+                        }
+                    }
+
+                }
+
+            });
+
+        }
+        else
+        {
+            if ($("#Active")[0].checked)
+            {
+                $.ajax({
+                    url: '@Url.Action("CreateBrandMaster", "Master")',
+                    type: 'POST',
+                    data: $('#frmBrandMasterDetail').serialize(),
+                    success: function (result) {
+                        if (result.success) {
+                            var brandInsUpdMsg = '@LocalizationHelper.GetString("Master", "BrandMasterDataInsertedSuccessfully")';
+                            refreshPartCache('BRAND', parentControlId, reqCallBackFunction); //Refresh the Brand cache and reload the parent control
+                            showAlert("success", brandInsUpdMsg, "idBrandSuccessMsg");
+                            $('#gridBrandMaster').data('kendoGrid').dataSource.read();
+                            $('#gridBrandMaster').data('kendoGrid').refresh();
+                            clear_form_elements($('#frmBrandMasterDetail'));
+                            $("#BrandID").val(0);
+                        }
+                        else {
+                            $('#frmBrandMasterDetail').html(result);
+                        }
+                    }
+                })
+            }
+            else
+            {
+                var Msg = '@LocalizationHelper.GetString("Master", "Pleaseselectactiveoption")';
+                showAlert("failure", Msg, "idFailureMsg");
+            }
+        }
+    });
+
+    function clear_form_elements(ele) {
+        $(ele).find(':input').each(function () {
+            switch (this.type) {
+                case 'password':
+                case 'select-multiple':
+                case 'select-one':
+                case 'text':
+                case 'textarea':
+                    $(this).val('');
+                    break;
+                case 'checkbox':
+                case 'radio':
+                    this.checked = false;
+            }
+        });
+
+        $(this).resetValidation();
+        $("#Active")[0].checked = true;
+    }
+    /*******************************************helping method for clearing form- clear jquery validation error*************/
+    $(function () {
+        $("div.required input").tooltipValidation({
+            placement: "top",
+        });
+
+        var errorCtrls = $("input.input-validation-error");
+        if (errorCtrls.length > 0) {
+            errorCtrls.css('border', '1px solid red');
+            errorCtrls.first().focus();
+        }
+        $.validator.unobtrusive.parse($('#frmBrandMasterDetail'));
+    });
+    (function ($) {
+        var valSummary = $(".validation-summary-errors").html();
+        if (valSummary != "undefined" && valSummary != "" && valSummary != null) {
+            var errorVal = $.trim($(valSummary).find("li").html());
+            if (errorVal != "")
+            { showAlert("failureValSummary", "", "idBrandFailureSummarMsg"); }
+        }
+        //re-set all client validation given a jQuery selected form or child
+        $.fn.resetValidation = function () {
+
+            var $form = this.closest('form');
+            $(".validation-summary-errors").html("");
+
+            return $form;
+        };
+
+        //reset a form given a jQuery selected form or a child
+        //by default validation is also reset
+        $.fn.formReset = function (resetValidation) {
+            var $form = this.closest('form');
+            $form[0].reset();
+
+            if (resetValidation == undefined || resetValidation) {
+                $form.resetValidation();
+            }
+
+            return $form;
+        }
+    })(jQuery);
+
+    //$(".validation-summary-errors").click(function () { alert($(".validation-summary-errors").html()); });
+
+    $(document).ready(function () {
+        if (jQuery('#gridBrandMaster').data('kendoGrid') != undefined) {
+            var currentDataItem = jQuery('#gridBrandMaster').data('kendoGrid').dataItem(jQuery('#gridBrandMaster').data('kendoGrid').select());
+            if (currentDataItem == null)
+                $("#Active")[0].checked = true;
+            else {
+                if (currentDataItem.Active == false) {
+                    $("#Active")[0].checked = false;
+                }
+                else
+                    $("#Active")[0].checked = true;
+            }
+        }
+        else
+            $("#Active")[0].checked = true;
+    });
+
+</script>
+
+
+

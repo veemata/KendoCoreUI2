@@ -1,0 +1,30 @@
+﻿
+
+@{
+    ViewBag.Title = "Masters";
+}
+<script>
+    $(document).ready(function () {
+        $("#MasterType").change(function () {
+            var masterSelected = $("#MasterType").data("kendoComboBox").input.val();
+            alert(masterSelected);
+        });
+    });
+</script>
+<div style="min-height:1434px" class="page-content">
+
+    <div class="portlet light">
+        <div class="portlet-body align-parttype-masterbody">
+            <div class="normal-search margin-bottom-10 clearfix">
+                <div class="col-md-12" id="idMasterPartialView">
+                    <div class="form-body">
+                        <div class="row">
+                            @{Html.RenderPartial("_BrandMaster", new MH.GKat.Website.Web.ViewModels.Master.BrandViewModel()); }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+       

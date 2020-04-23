@@ -1,0 +1,215 @@
+﻿@using Kendo.Mvc.UI
+@using Abp.Localization
+@using MH.GKat.Website.Web.ViewModels.Master
+@model MH.GKat.Website.Web.ViewModels.Master.BrandViewModel
+
+<div>
+    <script>
+        function onRowSelected(e) {
+            //var isAccordionOpen=$("#brandMasterDetail").hasClass("in");
+            var currentDataItem = jQuery('#gridBrandMaster').data('kendoGrid').dataItem(this.select());
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("_BrandMasterDetail", "Master")',
+                data: JSON.stringify(currentDataItem),
+                contentType: "application/json",
+            }).done(function (result) {
+                $('#frmBrandMasterDetail').html(result);
+                //alert(isAccordionOpen);
+                //if (!isAccordionOpen)
+                $("#brandMasterDetail").collapse("show");
+
+            });
+        }
+        function requestend_handler(e) {
+            //if (e.type == "destroy") {
+            //    $("#gridBrandMaster").data("kendoGrid").dataSource.read();
+            //    clear_form_elements($('#frmBrandMasterDetail'));
+            //}
+        }
+
+        //var wnd;
+        function ConfirmDelete() {
+            var brandIdToDelete = $("#BrandIdToDelete").val();
+            $.ajax({
+                url: '@Url.Action("BrandDelete", "Master")?brandId=' + brandIdToDelete,
+                type: 'POST',
+                success: function (result) {
+                    $("#gridBrandMaster").data("kendoGrid").dataSource.read();
+                    $("#BrandIdToDelete").val(0)
+                    clear_form_elements($('#frmBrandMasterDetail'));
+                    $("#DeleteBrand").data("kendoWindow").close();
+                    $("#brandMasterDetail").collapse("show");
+                    if (result.success) {
+                        var parentControlId = "@Model.parentControlId";
+                        var reqCallBackFunction = "@Model.reqCallBackFunction";
+                        var parentControlVal = "@Model.parentControlVal";
+                        refreshPartCache('BRAND', parentControlId, reqCallBackFunction); //Refresh the Brand cache and reload the parent control
+                        var Msg = '@LocalizationHelper.GetString("Master","BrandDeletedSuccessfully")';
+                        showAlert("success", Msg, "idBrandSuccessMsg")
+                        $("#Active")[0].checked = true;
+                    }
+                    else {
+
+                        showAlert("failure", result.error, "idFailureMsg")
+                    }
+                }
+            });
+        }
+        function DoNotDelete() {
+            $("#DeleteBrand").data("kendoWindow").close();
+        }
+
+        function DeleteBrand(BrandID) {
+            // debugger;
+            //e.preventDefault();
+            //var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+            $("#BrandIdToDelete").val(BrandID);
+            if ('@Model.ScreenType' == 'Popup') {
+                var confirmMsg = '@LocalizationHelper.GetString("Master", "ConfirmDeleteMessage")';
+                var res = confirm(confirmMsg);
+                if (res) {
+                    ConfirmDelete();
+                }
+                else {
+                    DoNotDelete();
+                }
+            }
+            else {
+                var wnd = $("#DeleteBrand").kendoWindow({
+                    content: {
+                        url: "/Common/ConfirmDelete"
+                    },
+                    modal: true
+                }).data("kendoWindow");
+
+                wnd.title("@LocalizationHelper.GetString("Master", "DeleteConfirmation")");
+                wnd.center();
+                wnd.open();
+            }
+        }
+
+
+    </script>
+
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading portlet box green" style="margin-bottom:10px !important;" data-toggle="collapse" data-target="#brandMasterDetail">
+                <h4 class="panel-title collapsed align-accordion-part" data-toggle="collapse" data-target="#brandMasterDetail">@LocalizationHelper.GetString("Master", "BrandMasterAccordianText")</h4>
+            </div>
+            <div id="brandMasterDetail" class="panel-collapse collapse">
+                @using (Html.BeginForm("_BrandMasterDetail", "Master", FormMethod.Post, new { @id = "frmBrandMasterDetail", @class = "form-horizontal" }))
+                {
+                    @Html.Partial("_BrandMasterDetail", Model)
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="full-grid">
+        @Html.Hidden("BrandIdToDelete")
+        @(Html.Kendo().Grid<MH.GKat.Website.Web.ViewModels.Master.BrandViewModel>()
+        .Name("gridBrandMaster")
+        .Columns(info =>
+        {
+            info.Group(group => group
+            .Columns(columns =>
+            {
+                columns.Bound(p => p.BrandID).Hidden(true);
+                columns.Bound(p => p.MasterBrandID).Hidden(true);
+                columns.Bound(p => p.BrandTypeID).Hidden(true);
+                columns.Bound(p => p.BrandQualityID).Hidden(true);
+                columns.Bound(p => p.BrandDutyID).Hidden(true);
+                columns.Bound(p => p.Abbreviation).Width(150).Title(LocalizationHelper.GetString("Master", "Abbreviation"));
+                columns.Bound(p => p.Description).Width(250).Title(LocalizationHelper.GetString("Master", "Description"));
+                columns.Bound(p => p.BrandTypeDescription).Width(150).Title(LocalizationHelper.GetString("Master", "BrandTypeID")).Filterable(false);
+                columns.Bound(p => p.BrandQualityDescription).Width(150).Title(LocalizationHelper.GetString("Master", "BrandQuality")).Filterable(false);
+                columns.Bound(p => p.BrandDutyDescription).Width(150).Title(LocalizationHelper.GetString("Master", "BrandDutyID")).Filterable(false);
+                columns.Bound(p => p.AAIAID).Width(100).Title(LocalizationHelper.GetString("Master", "AAIAID")).Filterable(false).Filterable(false);
+                columns.Bound(p => p.SubBrandDescription).Width(100).Title(LocalizationHelper.GetString("Master", "SubBrandDescription")).Filterable(false).Filterable(false);
+                columns.Bound(p => p.SubBrandAAIDID).Width(100).Title(LocalizationHelper.GetString("Master", "SubBrandAAIDID")).Filterable(false).Filterable(false);
+                columns.Bound(p => p.InCatalog).Width(100).Title(LocalizationHelper.GetString("Master", "InCatalog")).Filterable(false)
+                                   .ClientTemplate("<input type='checkbox' #= InCatalog ? checked='checked': ''  # class='chkbx' disabled/>").HtmlAttributes(new { style = "text-align: center" });
+                columns.Bound(p => p.InPrivate).Width(100).Title(LocalizationHelper.GetString("Master", "InPrivate")).Filterable(false)
+                                   .ClientTemplate("<input type='checkbox' #= InPrivate ? checked='checked': ''  # class='chkbx' disabled/>").HtmlAttributes(new { style = "text-align: center" });
+                columns.Bound(p => p.Premium).Width(100).Title(LocalizationHelper.GetString("Master", "Premium")).Filterable(false)
+                                   .ClientTemplate("<input type='checkbox' #= Premium ? checked='checked': ''  # class='chkbx' disabled/>").HtmlAttributes(new { style = "text-align: center" });
+                columns.Bound(p => p.OPP).Width(100).Title(LocalizationHelper.GetString("Master", "OPP")).Filterable(false)
+                                   .ClientTemplate("<input type='checkbox' #= OPP ? checked='checked': ''  # class='chkbx' disabled/>").HtmlAttributes(new { style = "text-align: center" });
+                columns.Bound(p => p.Active).Width(100).Title(LocalizationHelper.GetString("Master", "Active")).Filterable(false)
+                                   .ClientTemplate("<input type='checkbox' #=Active ? checked='checked': '' # class='chkbx' disabled/>").HtmlAttributes(new { style = "text-align: center" });
+                columns.Bound(p => p.MasterBrandDescription).Width(150).Title(LocalizationHelper.GetString("Master", "MasterBrandID")).Filterable(false);
+                columns.Bound(p => p.NAPACode).Width(100).Title(LocalizationHelper.GetString("Master", "NAPACode")).Filterable(false);
+                columns.Bound(p => p.ParentCode).Width(100).Title(LocalizationHelper.GetString("Master", "ParentCode")).Filterable(false);
+                columns.Bound(p => p.BrandOwnerCode).Width(100).Title(LocalizationHelper.GetString("Master", "BrandOwnerCode")).Filterable(false);
+                //columns.Command(command =>
+                //{
+                //    command.Custom("Delete").Click("DeleteBrand").Text("<span class='k-icon k-i-close'></span>").HtmlAttributes(new { title = LocalizationHelper.GetString("Master", "Delete"), @class = "k-group-cell" });
+                //}).Title(LocalizationHelper.GetString("Master", "Action")).Width(60);
+                columns.Bound(e => e.BrandID).ClientTemplate("<a role='button' class='k-button k-button-icontext k-grid-delete' title = " + LocalizationHelper.GetString("Master", "Delete") + " onclick='DeleteBrand(#=BrandID#)'><span class='k-icon k-i-close'></span></a>").Title(LocalizationHelper.GetString("Master", "Action")).Width(60);
+            }));
+        })
+        //.Pageable(e => e.ButtonCount(1).PageSizes(Model.KendoPageSizeOptions).Input(true).Numeric(false))
+        .Pageable(e => e.ButtonCount(1).PageSizes(Model.KendoPageSizeOptionsWithAll).Input(true).Numeric(false))
+        .Sortable()
+        .Filterable()
+        .Scrollable()
+        .Reorderable(r => r.Columns(true))
+        .ColumnMenu(f => f.Sortable(false))
+        .Resizable(resize => resize.Columns(true))
+        .Selectable(selectable => selectable
+        .Mode(GridSelectionMode.Single)
+        .Type(GridSelectionType.Row))
+        .Events(e => e.Change("onRowSelected"))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Model(model => model.Id(brandMaster => brandMaster.BrandID))
+            .Events(e => e.RequestEnd("requestend_handler"))
+            .PageSize(Model.KendoDefaultPageSizeWithAll)
+            .Read(read => read.Action("BrandMaster_Read", "Master"))
+            .Destroy(update => update.Action("BrandDelete", "Master"))
+            .ServerOperation(true)
+        ))
+
+        @(Html.Kendo().Window()
+        .Name("DeleteBrand")
+        .Visible(false)
+        .Modal(true)
+        .Draggable(false)
+        .Width(400)
+        .Height(100)
+        .AutoFocus(true)
+        .AppendTo("frmBrandMasterDetail")
+        )
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var grid = $("#gridBrandMaster").data("kendoGrid");
+            var options = localStorage["options-gridBrandMaster"];
+            if (options) {
+                var matching = grid.columns.compareColumns(JSON.parse(options).columns);
+                if (matching) {
+                    grid.setOptions(JSON.parse(options));
+                }
+            }
+            $("#gridBrandMaster .k-pager-info").before("<button id='btnSaveGridPreferences' title='Save Current Grid Layout Preferences' type='button' class='btn dark btn-outline' onclick='brandSavePref()'>@LocalizationHelper.GetString("Common", "SaveGridPref")</button>");
+
+            //$("#gridBrandMaster").data("kendoGrid").dataSource.read();
+        });
+
+        function brandSavePref() {
+            var state = {
+                columns: $("#gridBrandMaster").data("kendoGrid").columns
+            };
+            SetLayoutPreferences('@Model.UserID', 'options-gridBrandMaster', kendo.stringify(state), '@Model.BaseAPIUrl', 'idBrandSuccessMsg',
+                '@LocalizationHelper.GetString("Common", "GridPrefSaveMessage")');
+        }
+
+       
+    </script>
+
+</div>
+
+

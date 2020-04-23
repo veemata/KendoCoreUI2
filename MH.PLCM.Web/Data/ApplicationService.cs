@@ -47,7 +47,7 @@ namespace MH.PLCM.Data
         public void AddChildren(TreeViewItemModel parent)
         {
             var children = (from pc in _db.AppPermissions
-                            where (pc.ParentId == Convert.ToInt32(parent.Id))
+                            where (pc.ParentId == Convert.ToInt32(parent.Id) && pc.ParentId != pc.PermissionId)
                             select new TreeViewItemModel
                             {
                                 Id = pc.PermissionId.ToString(),
@@ -55,6 +55,7 @@ namespace MH.PLCM.Data
                                 Expanded = true
 
                             }).ToList();
+            
             if (children.Count > 0)
             {
                 parent.HasChildren = true;

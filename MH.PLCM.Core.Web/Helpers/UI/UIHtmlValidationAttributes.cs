@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Dynamic
+namespace MH.PLCM.Core.Dynamic
 {
     public static class UIHtmlValidationAttributes
     {

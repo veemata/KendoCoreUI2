@@ -14,27 +14,23 @@
    "Tables": [
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[AppMenuItems]"
+         "Name": "[dbo].[DynamicFeatures]"
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[AppPermissions]"
+         "Name": "[dbo].[DynamicItemFeatures]"
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[AppRolePermission]"
+         "Name": "[dbo].[DynamicItems]"
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[AppRoles]"
+         "Name": "[dbo].[DynamicTemplateFeatures]"
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[AppUserRole]"
-      },
-      {
-         "HasPrimaryKey": true,
-         "Name": "[dbo].[AspNetUsers]"
+         "Name": "[dbo].[DynamicTemplates]"
       }
    ],
    "UseDatabaseNames": false,

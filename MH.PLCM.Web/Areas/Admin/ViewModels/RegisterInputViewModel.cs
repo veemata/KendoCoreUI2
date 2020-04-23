@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace MH.PLCM.Models.Dtos
+namespace MH.PLCM.Areas.Admin.ViewModels
 {
 
-    public class RegisterInputDto
+    public class RegisterInputViewModel
     {
 
         [Required]

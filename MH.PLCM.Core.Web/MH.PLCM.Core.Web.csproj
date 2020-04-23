@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Helpers\Assets\fields.json" />
+    <None Remove="Helpers\Assets\ItemProps.json" />
     <None Remove="TagHelpers\Content\_BootStrapDeleteConfirm.cshtml" />
   </ItemGroup>
 
@@ -13,6 +15,11 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Helpers\Assets\fields.json" />
+    <EmbeddedResource Include="Helpers\Assets\ItemProps.json" />
   </ItemGroup>
 
   <ItemGroup>

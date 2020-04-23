@@ -1,8 +1,8 @@
 ﻿using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
+using MH.PLCM.Areas.Admin.ViewModels;
 using MH.PLCM.Core.Entities;
 using MH.PLCM.Data;
-using MH.PLCM.Models.Dtos;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -34,7 +34,7 @@ namespace MH.PLCM.Controllers
 
         public IActionResult Index()
         {
-            RegisterInputDto dto = new RegisterInputDto();
+            RegisterInputViewModel dto = new RegisterInputViewModel();
             return View(dto);
         }
 
@@ -44,7 +44,7 @@ namespace MH.PLCM.Controllers
         }
 
         [AcceptVerbs("Post")]
-        public void Register(RegisterInputDto modelUser)
+        public void Register(RegisterInputViewModel modelUser)
         {
 
             if (modelUser != null && ModelState.IsValid)

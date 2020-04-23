@@ -1,0 +1,29 @@
+﻿@using Kendo.Mvc.UI
+@using Abp.Localization
+@model MH.GKat.Website.Web.ViewModels.Master.BrandViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+    <div class="col-md-8">
+        <span class="fa fa-2x fa-barcode margin-right-10 margin-top-10"></span>
+        <span class="font-lg">@LocalizationHelper.GetString("Master", "BrandPageTitle") </span>
+    </div>
+</div>
+
+<div class="modal-body clearfix">
+    <div class="portlet light">
+        <div class="portlet-body align-parttype-masterbody">
+            <div class="normal-search margin-bottom-10 clearfix">
+                <div class="col-md-12" id="idMasterPartialView">
+                    <div class="form-body">
+                        <div class="row">
+                            @{Html.RenderPartial("_BrandMaster", Model); }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
